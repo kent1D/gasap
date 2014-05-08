@@ -1,0 +1,132 @@
+<div class="formulaire_spip formulaire_#FORM">
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[(#EDITABLE)
+	<form action="#ENV{action}" method="post">
+		<div>
+			[(#ACTION_FORMULAIRE{#ENV{action}})]
+			[<input type="hidden" name="id_auteur" value="(#SESSION{id_auteur})" />]
+			[<input type="hidden" name="id_particulier" value="(#ENV{id_particulier})" />]
+			[<input type="hidden" name="new" value="(#ENV{new})" />]
+			<ul>
+				<li class="fieldset">
+					<fieldset>
+						<h3 class="legend"><:gasap:formulaire_inscription:></h3>
+						<ul>
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{nom}}
+							<li class="editer_nom obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="nom"><:gasap:titre_cadre_nom:>*</label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='nom' id='nom' value="[(#ENV**{nom})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{bfg_god_mode}}
+							<li class="editer_bfg_god_mode obligatoire[ (#GET{erreurs}|oui)erreur]" style="display: none;">
+								<label for="bfg_god_mode"><:gasap:titre_cadre_bfg_god_mode:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='bfg_god_mode' id='bfg_god_mode' value="[(#ENV**{bfg_god_mode})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{prenom}}
+							<li class="editer_prenom obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="prenom"><:gasap:titre_cadre_prenom:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='prenom' id='prenom' value="[(#ENV**{prenom})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{adresse}}
+							<li class="editer_adresse obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="adresse"><:gasap:titre_cadre_adresse:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='adresse' id='adresse' value="[(#ENV**{adresse})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{code_postal}}
+							<li class="editer_code_postal obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="code_postal"><:gasap:titre_cadre_code_postal:>*</label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='code_postal' id='code_postal' value="[(#ENV**{code_postal})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{ville}}
+							<li class="editer_ville obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="ville"><:gasap:titre_cadre_ville:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='ville' id='ville' value="[(#ENV**{ville})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{commune}}
+							<li class="editer_commune obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="commune"><:gasap:titre_cadre_commune:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='commune' id='commune' value="[(#ENV**{commune})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{telephone}}
+							<li class="editer_telephone[ (#GET{erreurs}|oui)erreur]">
+								<label for="telephone"><:gasap:titre_cadre_telephone:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='telephone' id='telephone' value="[(#ENV**{telephone})]" />
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{email}}
+							<li class="editer_email obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="email"><:gasap:titre_cadre_email:>*</label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<input type='text' class='text' name='email' id='email' value="[(#ENV**{email})]" />
+							</li>
+							
+						</ul>
+					</fieldset>
+				</li>
+				<li class="fieldset">
+					<fieldset>
+						<h3 class="legend"><:gasap:informations_complemeentaires:></h3>
+						<ul>
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{composition_menage}}
+							<li class="editer_composition_menage[ (#GET{erreurs}|oui)erreur]">
+								<label for="composition_menage"><:gasap:titre_cadre_composition_menage:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<div>
+									<span class='explication'><:gasap:entree_composition_menage:> &nbsp; &nbsp; </span>
+									<input type='text' class='text' name='composition_menage' id='composition_menage' value="[(#ENV**{composition_menage})]" />
+								</div>
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{personne_de_contacte}}
+							<li class="editer_personne_de_contacte[ (#GET{erreurs}|oui)erreur]">
+								<label for="personne_de_contacte"><:gasap:titre_cadre_personne_de_contacte:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<div class="choix">
+									<span class='explication'><:gasap:entree_personne_de_contacte:> &nbsp; &nbsp; </span>
+									<input type='radio' class="radio" name='personne_de_contacte' value='0' id='syndication_0'[ (#ENV{personne_de_contacte}|=={0}|?{' ',''})checked="checked"] />
+									<label for='syndication_0'><:gasap:non:></label>
+									<input type='radio' class="radio" name='personne_de_contacte' value='1' id='syndication_1'[ (#ENV{personne_de_contacte}|=={1}|?{' ',''})checked="checked"] />
+									<label for='syndication_1'><:gasap:oui:></label>
+								</div>
+							</li>
+
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{lieu}}
+							<li class="editer_lieu obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="lieu"><:gasap:titre_cadre_lieu:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<p class='explication'><:gasap:entree_lieu:></p>
+								<textarea class='textarea' name='lieu' id='lieu'>[(#ENV**{lieu})]</textarea>
+							</li>
+							
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{remarques}}
+							<li class="editer_remarques obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="remarques"><:gasap:titre_cadre_remarques:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<p class='explication'><:gasap:entree_remarques:></p>
+								<textarea class='textarea' name='remarques' id='remarques'>[(#ENV**{remarques})]</textarea>
+							</li>
+						</ul>
+					</fieldset>
+				</li>
+			</ul>
+			<p class="boutons"><input type="submit" class="submit" value="<:gasap:pass_ok:>" /></p>
+		</div>
+	</form>
+	]	
+</div>

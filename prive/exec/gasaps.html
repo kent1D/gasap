@@ -1,0 +1,44 @@
+<!--#hierarchie-->
+<div id="chemin">
+	<span class="bloc"><a href="[(#URL_ECRIRE{gasap})]" class="racine" >Gasap</a></span>
+	
+		<span class="bloc">
+			<em>&gt;</em>
+			<a class="on" href="[(#SELF)]"><:gasap:gasaps:></a>
+		</span>
+	
+</div>
+<!--/#hierarchie-->
+<div class="box simple fiche_objet">
+	<h1><:gasap:gasaps:></h1>
+
+	<B_lesgasaps>
+	<div class="cadre lesgasaps">
+
+		<BOUCLE_lesgasaps(GASAPS){pagination 50}{par code_postal}{par nom}{statut != poubelle}>
+			[<h4>(#VILLE|unique)</h4>]
+			<p>
+				* <a href="[(#URL_ECRIRE{voir_gasap,id_gasap=#ID_GASAP})]">#NOM</a> 
+				[(#STATUT|=={prepa}|oui) <:gasap:statut_prepa:>] 
+				[(#STATUT|=={en_attente}|oui) <:gasap:statut_en_attente:>] 
+				[(#STATUT|=={valide}|oui) [(#COMPLET|=={0}|?{'places libres','complet'})] ] 
+				[(#STATUT|=={publie}|oui) [(#COMPLET|=={0}|?{'places libres','complet'})] ] 
+			</p>
+		</BOUCLE_lesgasaps>
+
+		[<p class="pagination">(#PAGINATION)</p>]
+	</div>
+	</B_lesgasaps>
+	<br />
+	<p><:gasap:pas_encore_de_gasap:></p>
+	<br />
+	<//B_lesgasaps>
+	[(#BOUTON_ACTION{<:gasap:ajouter_un_gasap:>, #URL_ECRIRE{editer_gasap,new=oui}, ajouter gasap})]
+</div>
+<!--#navigation-->
+[(#INCLURE{fond=prive/raccourcis})]
+<!--/#navigation-->
+ 
+<!--#extra-->
+<p style="font-size: 0.8em;" >GASAP plugin by <a href="http://www.lattirail.net" >LATTIRAIL.NET</a></p>
+<!--/#extra-->

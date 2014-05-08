@@ -1,0 +1,48 @@
+<div class="formulaire_spip formulaire_#FORM">
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	<form action="#ENV{action}" method="post">
+		<div>
+			[(#ACTION_FORMULAIRE{#ENV{action}})]
+			[<input type="hidden" name="id_auteur" value="(#SESSION{id_auteur})" />]
+			[<input type="hidden" name="id_particulier" value="(#ENV{id_particulier})" />]
+			[<input type="hidden" name="new" value="(#ENV{new})" />]
+			<ul>
+				<li class="fieldset">
+					<fieldset>
+						<h3 class="legend"><:gasap:lier_ce_particulier_a_un_gasap:></h3>
+						<ul>
+							#SET{erreurs,#ENV**{erreurs}|table_valeur{id_gasap}}
+							<li class="editer_id_gasap obligatoire[ (#GET{erreurs}|oui)erreur]">
+								<label for="id_gasap"><:gasap:titre_cadre_id_gasap:></label>
+								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								<B_LesGasaap>
+								<select name="id_gasap" class='select' id='id_gasap' >
+									<BOUCLE_LesGasaap(GASAPS){statut = publie}>
+										<option value="#ID_GASAP" >#NOM</option>
+									</BOUCLE_LesGasaap>
+								</select>
+								</B_LesGasaap>
+							</li>
+						</ul>
+					</fieldset>
+				</li>
+			</ul>
+			<p class="boutons"><input type="submit" class="submit" value="<:gasap:pass_ok:>" /></p>
+		</div>
+	</form>
+</div>
+<div class="cadre">
+	<strong><:gasap:ce_particulier_est_lie_au_groupe_suivant:></strong><br />
+	
+	<B_LeLien>
+	<ul>
+	<BOUCLE_LeLien(GASAPS){id_particulier}>
+		<li><a href="#URL_ECRIRE{voir_gasap,id_gasap=#ID_GASAP}">#NOM</a></li>
+	</BOUCLE_LeLien>
+	</ul>
+	</B_LeLien>
+		<:gasap:ce_particulier_ne_fait_partie_d_aucun_gasap:>
+	<//B_LeLien>
+	
+</div>

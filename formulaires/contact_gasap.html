@@ -1,0 +1,35 @@
+<div class="formulaire_spip formulaire_#FORM">
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[(#EDITABLE)
+	<form action="#ENV{action}" method="post">
+		<div>
+			[(#ACTION_FORMULAIRE{#ENV{action}})]
+			[<input type="hidden" name="id_gasap" value="(#ENV{id_gasap})" />]
+			<fieldset>
+				<ul>
+					#SET{erreurs,#ENV**{erreurs}|table_valeur{nom}}
+					<li class="editer_nom obligatoire[ (#GET{erreurs}|oui)erreur]">
+						<label for="nom"><:gasap:titre_cadre_nom:></label>
+						[<span class='erreur_message'>(#GET{erreurs})</span>]
+						<input type='text' class='text' name='nom' id='nom' value="[(#ENV**{nom})]" />
+					</li>
+					#SET{erreurs,#ENV**{erreurs}|table_valeur{email}}
+					<li class="editer_email obligatoire[ (#GET{erreurs}|oui)erreur]">
+						<label for="email"><:gasap:titre_cadre_email:></label>
+						[<span class='erreur_message'>(#GET{erreurs})</span>]
+						<input type='text' class='text' name='email' id='email' value="[(#ENV**{email})]" />
+					</li>
+					#SET{erreurs,#ENV**{erreurs}|table_valeur{texte}}
+					<li class="editer_texte obligatoire[ (#GET{erreurs}|oui)erreur]">
+						<label for="texte"><:gasap:votre_message:></label>
+						[<span class='erreur_message'>(#GET{erreurs})</span>]
+						<textarea class='textarea' name='texte' id='texte'>[(#ENV**{texte})]</textarea>
+					</li>
+				</ul>
+			</fieldset>
+			<p class="boutons"><input type="submit" class="submit" value="<:gasap:pass_ok:>" /></p>
+		</div>
+	</form>
+	]
+</div>

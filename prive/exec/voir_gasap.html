@@ -1,0 +1,69 @@
+<BOUCLE_Principale(GASAPS){id_gasap = #ID_GASAP}>
+	<!--#hierarchie-->
+	<div id="chemin">
+		<span class="bloc"><a href="[(#URL_ECRIRE{gasap})]" class="racine" >Gasap</a></span>
+		
+			<span class="bloc">
+				<em>&gt;</em>
+				<a href="[(#URL_ECRIRE{gasaps})]"><:gasap:gasaps:></a>
+			</span>
+		
+		
+			<span class="bloc">
+				<em>&gt;</em>
+				<a class="on" href="[(#SELF)]">#NOM</a>
+			</span>
+		
+	</div>
+	<!--/#hierarchie-->
+
+	<div class="box simple fiche_objet">
+		<div class="fiche_statut"> 
+			<strong style="display: block;">
+				[(#STATUT|=={prepa}|oui) <img src="[(#CHEMIN{images/icon_cereal20.png})]" /> <:gasap:gasap:> <:gasap:statut_prepa:>] 
+				[(#STATUT|=={en_attente}|oui) <:gasap:gasap:> <:gasap:statut_en_attente:>] 
+				[(#STATUT|=={valide}|oui) [(#COMPLET|=={0}|?{<img src="[(#CHEMIN{images/icon_betterave20.png})]" /><:gasap:gasap:> <:gasap:statut_places_libres:>,<img src="[(#CHEMIN{images/icon_haricot20.png})]" /><:gasap:gasap:> <:gasap:statut_complet:>})] ] 
+				[(#STATUT|=={publie}|oui) [(#COMPLET|=={0}|?{<img src="[(#CHEMIN{images/icon_betterave20.png})]" /><:gasap:gasap:> <:gasap:statut_places_libres:>,<img src="[(#CHEMIN{images/icon_haricot20.png})]" /> <:gasap:gasap:> <:gasap:statut_complet:>})] ]
+			</strong>
+			[(#STATUT|=={en_attente}|oui)[(#BOUTON_ACTION{<:gasap:valider_gasap:>, #URL_ACTION_AUTEUR{valider_gasap,id_gasap:#ID_GASAP,#SELF}, valider_gasap})]]
+			[(#STATUT|=={valide}|oui) 
+					[<:gasap:stade_change:>: |(#COMPLET|=={0}|?{' ',''})[(#BOUTON_ACTION{<:gasap:indiquer_ca_gasap_comme_complet:>, #URL_ACTION_AUTEUR{completer_gasap,id_gasap:#ID_GASAP,#SELF}, completer_gasap})]]
+					[<:gasap:stade_change:>: |(#COMPLET|=={1}|?{' ',''})[(#BOUTON_ACTION{<:gasap:indiquer_ca_gasap_comme_incomplet:>, #URL_ACTION_AUTEUR{incompleter_gasap,id_gasap:#ID_GASAP,#SELF}, incompleter_gasap})]]
+			] 
+			[(#STATUT|=={publie}|oui)
+					[|(#COMPLET|=={0}|?{' ',''})[(#BOUTON_ACTION{<:gasap:indiquer_ca_gasap_comme_complet:>, #URL_ACTION_AUTEUR{completer_gasap,id_gasap:#ID_GASAP,#SELF}, completer_gasap})]]
+					[|(#COMPLET|=={1}|?{' ',''})[(#BOUTON_ACTION{<:gasap:indiquer_ca_gasap_comme_incomplet:>, #URL_ACTION_AUTEUR{incompleter_gasap,id_gasap:#ID_GASAP,#SELF}, incompleter_gasap})]]
+			]
+		</div>
+		<div class="fiche_boutons"  style="margin-top:15px; text-align:right">
+			[(#BOUTON_ACTION{<:gasap:editer_gasap:>, #URL_ECRIRE{editer_gasap,id_gasap=#ID_GASAP}, editer gasap})]|
+			[(#BOUTON_ACTION{<:gasap:supprimer_gasap:>, #URL_ACTION_AUTEUR{supprimer_gasap,id_gasap:#ID_GASAP,#SELF}, supprimer_gasap, <:gasap:etes_vous_sur_de_vouloir_supprimer_ce_gasap:>})]
+		</div>
+
+
+		[<h1>(#NOM)</h1>]
+		<div>
+			[<:gasap:adresse:>: (#ADRESSE)] #CODE_POSTAL #VILLE[, (#COMMUNE)]<br />
+			[Tel: (#TELEPHONE)<br />]
+			[Fax: (#FAX)<br />]
+			[Gsm: (#GSM)<br />]
+			[<br /><:gasap:permanance:>: (#PERMANANCE)]
+			[<:gasap:titre_cadre_courriel:> <a href="mailto:#EMAIL">(#EMAIL)</a><br />]
+			<hr />
+		</div>
+		[<div class="cadre">
+			<strong><:gasap:remarques:>:&nbsp;</strong><br />
+			(#REMARQUES)
+		</div>]
+	</div>
+
+	<!--#navigation-->
+		[(#INCLURE{fond=prive/encart_gasap}{id_gasap})]
+		<br />
+		[(#INCLURE{fond=prive/raccourcis})]
+	<!--/#navigation-->
+	 
+	<!--#extra-->
+	<p style="font-size: 0.8em;" >GASAP plugin by <a href="http://www.lattirail.net" >LATTIRAIL.NET</a></p>
+	<!--/#extra-->
+</BOUCLE_Principale>

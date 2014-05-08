@@ -1,0 +1,8 @@
+.fiche_objet .fiche_boutons bouton{
+border:1px solid #000;
+color:gold;
+background:transparent url(http://www.gasap.be/plugins/gasap/images/puce-rouge.gif) no-repeat 0 0;
+padding-left:15px
+} 
+
+

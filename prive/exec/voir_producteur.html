@@ -1,0 +1,64 @@
+<BOUCLE_Principale(PRODUCTEURS){id_producteur = #ID_PRODUCTEUR}>
+	<!--#hierarchie-->
+	<div id="chemin">
+		<span class="bloc"><a href="[(#URL_ECRIRE{gasap})]" class="racine" >Gasap</a></span>
+		
+			<span class="bloc">
+				<em>&gt;</em>
+				<a href="[(#URL_ECRIRE{producteurs})]"><:gasap:producteurs:></a>
+			</span>
+		
+		
+			<span class="bloc">
+				<em>&gt;</em>
+				<a class="on" href="[(#SELF)]">[(#NOM_FERME|sinon{#NOM #PRENOM})]</a>
+			</span>
+		
+	</div>
+	<!--/#hierarchie-->
+	<div class="box simple fiche_objet">
+		[(#BOUTON_ACTION{<:gasap:editer_producteur:>, #URL_ECRIRE{editer_producteur,id_producteur=#ID_PRODUCTEUR}, editer_producteur})]|
+		[(#BOUTON_ACTION{<:gasap:supprimer_producteur:>, #URL_ACTION_AUTEUR{supprimer_producteur,id_producteur:#ID_PRODUCTEUR,#SELF}, supprimer_producteur,<:gasap:voulez_vous_vraiment_supprimer_ce_particulier:>})]
+		<br />
+		<h1>[(#NOM_FERME|sinon{#NOM #PRENOM})]</h1>
+		<p>
+			#NOM #PRENOM<br />
+			#ADRESSE<br />
+			#CODE_POSTAL #VILLE[, (#COMMUNE)]<br />
+			#PAYS<br />
+			Tel: #TELEPHONE<br />
+			Fax: #FAX<br />
+			Gsm: #GSM<br />
+			E-Mail: <a href="mailto:#EMAIL">#EMAIL</a><br />
+		</p>
+		<hr />
+		[(#LABEL_BIO|?{' ',''})<:gasap:labellise_bio:><br />]
+		[(#BIODYNAMIE|?{' ',''})<:gasap:biodynamie:><br />]
+		[<h2><:gasap:type_culture:></h2><p>(#TYPE_CULTURE)</p>]
+		[<h2><:gasap:type_evelvage:></h2><p>(#TYPE_EVELVAGE)</p>]
+		[<h2><:gasap:transformation:></h2><p>(#TRANSFORMATION)</p>]
+		<hr />
+		<:gasap:taille_ferme:>[(#TAILLE_FERME|sinon{-})]<br />
+		<:gasap:distance_bruxelles:>[(#DISTANCE_BRUXELLES|sinon{-})]&nbsp;Km<br />
+		<:gasap:permanance:>[(#PERMANANCE|sinon{-})]<br />
+		<:gasap:stade:>[(#STADE|sinon{-})]<br />
+		<div class="cadre">
+			<strong><:gasap:commentaires:>:</strong>
+			#COMMENTAIRES
+		</div>
+		<hr />
+		<div class="cadre">
+			<strong><:gasap:remarques:>:&nbsp;</strong><br />
+			#REMARQUES
+		</div>
+	</div>
+	<!--#navigation-->
+		[(#INCLURE{fond=prive/encart_producteur}{id_producteur})]
+		<br />
+		[(#INCLURE{fond=prive/raccourcis})]
+	<!--/#navigation-->
+	 
+	<!--#extra-->
+	<p style="font-size: 0.8em;" >GASAP plugin by <a href="http://www.lattirail.net" >LATTIRAIL.NET</a></p>
+	<!--/#extra-->
+</BOUCLE_Principale>

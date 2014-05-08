@@ -1,0 +1,42 @@
+<!--#hierarchie-->
+<div id="chemin">
+	<span class="bloc"><a href="[(#URL_ECRIRE{gasap})]" class="racine on" >Gasap</a></span>
+</div>
+<!--/#hierarchie-->
+
+<h1><:gasap:g_a_s_a_p:></h1>
+
+
+<B_LesDemandesEnCour>
+<div class="cadre demandesencour">
+	<h2><:gasap:les_demandes_a_traiter:></h2>[(#BOUTON_ACTION{<:gasap:purger_particulier:>, #URL_ACTION_AUTEUR{purger,particulier,#SELF}, purger_particulier, <:gasap:etes_vous_sur_de_vouloir_archiver_les_particuliers:>})]
+	<ul>
+	<BOUCLE_LesDemandesEnCour(PARTICULIERS){statut = en_attente}{par maj}{exporte != 1}>
+		<li><a href="[(#URL_ECRIRE{voir_particulier,id_particulier=#ID_PARTICULIER})]">#PRENOM #NOM</a></li>
+	</BOUCLE_LesDemandesEnCour>
+	</ul>
+</div>
+</B_LesDemandesEnCour>
+<p><:gasap:aucune_inscription_a_traiter:></p>
+<//B_LesDemandesEnCour>
+
+<B_LesDemandesGASAPEnCour>
+<div class="cadre demandesencour">
+	<h2><:gasap:les_demandes_gasap_a_traiter:></h2>[(#BOUTON_ACTION{<:gasap:purger_gasap:>, #URL_ACTION_AUTEUR{purger,gasap,#SELF}, purger_gasap, <:gasap:etes_vous_sur_de_vouloir_archiver_les_gasaps:>})]
+	<ul>
+	<BOUCLE_LesDemandesGASAPEnCour(GASAPS){statut = en_attente}{par maj}{exporte != 1}>
+		<li><a href="[(#URL_ECRIRE{voir_gasap,id_gasap=#ID_GASAP})]">#NOM</a></li>
+	</BOUCLE_LesDemandesGASAPEnCour>
+	</ul>
+</div>
+</B_LesDemandesGASAPEnCour>
+<p><:gasap:aucune_inscription_GASAP_a_traiter:></p>
+<//B_LesDemandesGASAPEnCour>
+
+<!--#navigation-->
+[(#INCLURE{fond=prive/raccourcis})]
+<!--/#navigation-->
+ 
+<!--#extra-->
+<p style="font-size: 0.8em;" >GASAP plugin by <a href="http://www.lattirail.net" >LATTIRAIL.NET</a></p>
+<!--/#extra-->

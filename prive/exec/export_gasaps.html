@@ -1,0 +1,6 @@
+#HTTP_HEADER{Content-Type: text/csv; charset=#CHARSET}
+#HTTP_HEADER{Content-Disposition: attachment; filename=rapport.csv}
+#CACHE{0}
+"id";"nom";"adresse";"numero";"code_postal";"ville";"pays";"telephone";"fax";"gsm";"permanance";"remarques";"email";"nombre_place";"complet"
+<BOUCLE_Exp(GASAPS)>[(#SESSION{statut}|=={0minirezo}|oui)"#ID_GASAP";"#NOM";"#ADRESSE";"#NUMERO";"#CODE_POSTAL";"#VILLE";"#PAYS";"#TELEPHONE";"#FAX";"#GSM";"#PERMANANCE";"#REMARQUES";"[(#EMAIL**)]";"#NOMBRE_PLACE";"#COMPLET"]
+</BOUCLE_Exp>

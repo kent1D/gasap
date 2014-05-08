@@ -1,0 +1,29 @@
+<!--#hierarchie-->
+<div id="chemin">
+	<span class="bloc"><a href="[(#URL_ECRIRE{gasap})]" class="racine" >Gasap</a></span>
+	
+		<span class="bloc">
+			<em>&gt;</em>
+			<a href="[(#SELF)]"><:gasap:gasaps:></a>
+		</span>
+	
+	
+		<span class="bloc">
+			<em>&gt;</em>
+			<a class="on" href="[(#SELF)]"><:gasap:editer_un_gasap:></a>
+		</span>
+	
+</div>
+<!--/#hierarchie-->
+
+<h1><:gasap:editer_un_gasap:></h1>
+<div class="ajax">
+#FORMULAIRE_EDITER_GASAP
+</div>
+<!--#navigation-->
+	[(#INCLURE{fond=prive/raccourcis})]
+<!--/#navigation-->
+ 
+<!--#extra-->
+<p style="font-size: 0.8em;" >GASAP plugin by <a href="http://www.lattirail.net" >LATTIRAIL.NET</a></p>
+<!--/#extra-->

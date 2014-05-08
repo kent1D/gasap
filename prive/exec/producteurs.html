@@ -1,0 +1,38 @@
+<!--#hierarchie-->
+<div id="chemin">
+	<span class="bloc"><a href="[(#URL_ECRIRE{gasap})]" class="racine" >Gasap</a></span>
+	
+		<span class="bloc">
+			<em>&gt;</em>
+			<a class="on" href="[(#SELF)]"><:gasap:producteurs:></a>
+		</span>
+	
+</div>
+<!--/#hierarchie-->
+<div class="box simple fiche_objet">
+	<h1><:gasap:producteurs:></h1>
+
+	<B_lesproducteurs>
+	<div class="cadre lesproducteurs">
+		<ul>
+		<BOUCLE_lesproducteurs(PRODUCTEURS){pagination 10}{statut != poubelle}>
+			<li><a href="[(#URL_ECRIRE{voir_producteur,id_producteur=#ID_PRODUCTEUR})]">#PRENOM #NOM</a></li>
+		</BOUCLE_lesproducteurs>
+		</ul>
+		[<p class="pagination">(#PAGINATION)</p>]
+	</div>
+	</B_lesproducteurs>
+	<br />
+	<p><:gasap:pas_encore_de_producteur:></p>
+	<br />
+	<//B_lesproducteurs>
+	[(#BOUTON_ACTION{<:gasap:ajouter_un_producteur:>, #URL_ECRIRE{editer_producteur,new=oui}, ajouter producteur})]
+</div>
+
+<!--#navigation-->
+[(#INCLURE{fond=prive/raccourcis})]
+<!--/#navigation-->
+ 
+<!--#extra-->
+<p style="font-size: 0.8em;" >GASAP plugin by <a href="http://www.lattirail.net" >LATTIRAIL.NET</a></p>
+<!--/#extra-->
