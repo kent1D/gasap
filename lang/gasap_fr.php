@@ -100,6 +100,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 // I
 	'indiquer_ca_gasap_comme_complet' => 'Dire que ce GASAP est complet',
 	'indiquer_ca_gasap_comme_incomplet' => 'Dire que ce GASAP n\'est pas complet',
+	'info_derniere_mise_a_jour' => 'Dernière mise à jour&nbsp;:',
 	'informations_complemeentaires' => 'Informations compl&eacute;mentaires',
 	'informations_generales' => 'Informations g&eacute;n&eacute;rales',
 

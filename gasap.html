@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="#CHARSET"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
@@ -21,7 +20,7 @@
 						Tel: #TELEPHONE<br />
 						Fax: #FAX<br />
 						Gsm: #GSM<br />
-						<:gasap:permanance:>: #PERMANANCE			
+						<:gasap:permanance:>: #PERMANANCE
 					</p>
 					[(#COMPLET|=={0}|?{' ',''})
 						[<h3 class="spip">Contacter le gasap</h3>(#FORMULAIRE_CONTACT_GASAP)]
@@ -39,7 +38,7 @@
 		</div>
 		<div id="pied">
 			<div class="herbe">&nbsp;</div>
-			<p><multi>[fr]Dernière mise à jour[nl]Laatst aangepast</multi>: <BOUCLE_maj(RUBRIQUES){age>=0}{par date}{inverse}{0,1}>[(#DATE|affdate)]</BOUCLE_maj></p>
+			<p><:gasap:info_derniere_mise_a_jour:><BOUCLE_maj(RUBRIQUES){age>=0}{par date}{inverse}{0,1}>[(#DATE|affdate)]</BOUCLE_maj></p>
 		</div>
 	</body>
 </html>

@@ -17,6 +17,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'g_a_s_a_p' => 'Solidaire AankoopGroep voor artisanale Landbouw',
 	'gasap' => 'SAGAL',
 
+	// I
+	'info_derniere_mise_a_jour' => 'Laatst aangepast:',
 //M
 	'message_contact_asso_adresse' => 'E-mail: ',
 	'message_contact_asso_message' => 'Bericht: ',
