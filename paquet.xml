@@ -17,9 +17,9 @@
 	<licence>GNU/GLP</licence>
 
 	<pipeline nom="header_prive" inclure="gasap_pipelines.php" />
-	<pipeline nom="declarer_tables_principales" action="tables_principales" inclure="base/gasap.php" />
-	<pipeline nom="declarer_tables_interfaces" action="tables_interfaces" inclure="base/gasap.php" />
-	<pipeline nom="declarer_tables_auxiliaires" action="tables_auxiliaires" inclure="base/gasap.php" />
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/gasap.php" />
+	<pipeline nom="declarer_tables_interfaces" inclure="base/gasap.php" />
+	<pipeline nom="declarer_tables_auxiliaires" inclure="base/gasap.php" />
 
-	<menu nom="gasap" titre="gasap" parent="menu_edition" icone="images/gasap-16.png" action="gasap" />
+	<menu nom="gasap" titre="gasap:gasap" parent="menu_edition" icone="images/gasap-16.png" action="gasap" />
 </paquet>
