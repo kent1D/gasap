@@ -1,0 +1,25 @@
+<paquet
+	prefix="gasap"
+	version="1.0.0"
+	categorie="edition"
+	etat="stable"
+	compatibilite="[3.0.0;3.0.*]"
+	logo="images/gasap-24.png"
+	schema="0.1.0"
+>	
+
+	<nom>GASAP</nom>
+	<!-- Gasap -->
+
+	<auteur>Sébastien Denooz</auteur>
+	<auteur>kent1</auteur>
+
+	<licence>GNU/GLP</licence>
+
+	<pipeline nom="header_prive" inclure="gasap_pipelines.php" />
+	<pipeline nom="declarer_tables_principales" action="tables_principales" inclure="base/gasap.php" />
+	<pipeline nom="declarer_tables_interfaces" action="tables_interfaces" inclure="base/gasap.php" />
+	<pipeline nom="declarer_tables_auxiliaires" action="tables_auxiliaires" inclure="base/gasap.php" />
+
+	<menu nom="gasap" titre="gasap" parent="menu_edition" icone="images/gasap-16.png" action="gasap" />
+</paquet>

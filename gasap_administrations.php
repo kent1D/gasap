@@ -24,8 +24,6 @@ function gasap_upgrade($nom_meta_base_version,$version_cible){
 			maj_tables("spip_producteurs_gasaps");
 		}
 		
-	}else{
-		echo "gasap @ ".$version_cible;
 	}
 	ecrire_meta($nom_meta_base_version, $current_version=$version_cible);
 	ecrire_metas();

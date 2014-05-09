@@ -1,6 +1,5 @@
 <?php
 
-
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function gasap_tables_principales($tables_principales){
@@ -21,8 +20,9 @@ function gasap_tables_principales($tables_principales){
 		"email" => "TEXT DEFAULT '' NOT NULL",
 		"nombre_place"	=> "int(2) NOT NULL",
 		"complet"	=> "int(1) NOT NULL",
-		"lat" => "TEXT DEFAULT '' NOT NULL",
-		"lng" => "TEXT DEFAULT '' NOT NULL",
+		"lat"	=> "TEXT DEFAULT '' NOT NULL",
+		"lng"	=> "TEXT DEFAULT '' NOT NULL",
+		"exporte"	=> "int(1) NOT NULL",
 		"maj" => "TIMESTAMP",
 		"statut" => "VARCHAR(10) DEFAULT '0' NOT NULL"
 	);
@@ -109,6 +109,7 @@ function gasap_tables_principales($tables_principales){
 		"remarques"	=> "TEXT NOT NULL",
 		"personne_de_contacte"	=> "TEXT NOT NULL",
 		"composition_menage"	=> "int(1) NOT NULL",
+		"exporte"	=> "int(1) NOT NULL",
 		"maj" => "TIMESTAMP",
 		"statut" => "VARCHAR(10) DEFAULT '0' NOT NULL"
 		);
@@ -131,6 +132,60 @@ function gasap_tables_principales($tables_principales){
 	
 	return $tables_principales;
 
+}
+
+function gasap_tables_auxiliaires($tables_auxiliaires){
+	
+	$spip_gasaps_particuliers = array(
+		"id_gasap"	=> "bigint(21) NOT NULL",
+		"id_particulier"	=> "bigint(21) NOT NULL"
+	);
+	
+	$spip_gasaps_particuliers_key = array(
+		"PRIMARY KEY"		=> "id_gasap,id_particulier"
+	);
+		
+	$tables_auxiliaires['spip_gasaps_particuliers'] = array(
+		'field' => &$spip_gasaps_particuliers,
+		'key' => &$spip_gasaps_particuliers_key
+	);
+	
+	
+	$spip_producteurs_gasaps = array(
+		"id_producteur"	=> "bigint(21) NOT NULL",
+		"id_gasap"	=> "bigint(21) NOT NULL"
+	);
+	
+	$spip_producteurs_gasaps_key = array(
+		"PRIMARY KEY"		=> "id_producteur,id_gasap"
+	);
+		
+	$tables_auxiliaires['spip_producteurs_gasaps'] = array(
+		'field' => &$spip_producteurs_gasaps,
+		'key' => &$spip_producteurs_gasaps_key
+	);
+	
+	
+	return $tables_auxiliaires;
+
+}
+
+function gasap_tables_interfaces($tables_interfaces){
+	
+	$tables_interfaces['table_des_tables']['gasaps'] = 'gasaps';
+	$tables_interfaces['table_des_tables']['producteurs'] = 'producteurs';
+	$tables_interfaces['table_des_tables']['particuliers'] = 'particuliers';
+	
+	
+	$tables_interfaces['tables_jointures']['gasaps'][] = 'producteurs_gasaps';
+	$tables_interfaces['tables_jointures']['producteurs'][] = 'producteurs_gasaps';
+	
+	$tables_interfaces['tables_jointures']['gasaps'][] = 'gasaps_particuliers';
+	$tables_interfaces['tables_jointures']['particuliers'][] = 'gasaps_particuliers';
+	
+	
+	
+	return $tables_interfaces;
 }
 
 ?>
