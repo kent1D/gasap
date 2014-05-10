@@ -13,7 +13,13 @@ function gasap_upgrade($nom_meta_base_version,$version_cible){
 	$maj['create'] = array(
 		array('maj_tables',array('spip_gasaps,spip_producteurs,spip_particuliers,spip_gasaps_particuliers,spip_producteurs_gasaps'))
 	);
-
+	
+	$maj['0.2.0'] = array(
+		array('gasap_maj_anciens_statuts','')
+	);
+	$maj['0.3.0'] = array(
+		array('gasap_maj_statuts_tronques','')
+	);
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
@@ -32,4 +38,41 @@ function gasap_vider_tables($nom_meta_base_version){
 	effacer_meta($nom_meta_base_version);
 }
 
+/**
+ *
+ * Mettre à jour les anciens statuts vers les nouveaux
+ * - ```prepa``` et ```en_attente``` => ```construction```
+ * - ```publie``` ou ```valide``` et complet = 0 => ```libre```
+ * - ```publie``` ou ```valide``` et complet = 1 => ```complet```
+ */
+function gasap_maj_anciens_statuts(){
+	/**
+	 * Tout ce qui est en prepa ou en_attente => construction
+	 */
+	sql_updateq('spip_gasaps',array('statut'=>'construction'),'statut="prepa"');
+	sql_updateq('spip_gasaps',array('statut'=>'construction'),'statut="en_attente"');
+	
+	/**
+	 * Tout ce qui est en publie ou valide et complet = 0 => libre
+	 */
+	sql_updateq('spip_gasaps',array('statut'=>'libre'),'statut="publie" AND complet=0');
+	sql_updateq('spip_gasaps',array('statut'=>'libre'),'statut="valide" AND complet=0');
+	
+	/**
+	 * Tout ce qui est en publie ou valide et complet = 1 => complet
+	 */
+	sql_updateq('spip_gasaps',array('statut'=>'complet'),'statut="publie" AND complet=1');
+	sql_updateq('spip_gasaps',array('statut'=>'complet'),'statut="valide" AND complet=1');
+	
+	/**
+	 * On ne touche pas au statut ```poubelle```
+	 * mais on supprime le champ complet de la base
+	 */
+	sql_alter('TABLE spip_gasaps DROP COLUMN complet');
+}
+
+function gasap_maj_statuts_tronques(){
+	sql_alter("TABLE spip_gasaps CHANGE `statut` `statut` VARCHAR(15)  NOT NULL DEFAULT 'prepa'");
+	sql_updateq('spip_gasaps',array('statut'=>'construction'),'statut="constructi"');
+}
 ?>

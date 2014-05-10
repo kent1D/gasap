@@ -144,10 +144,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 // S
 	'stade' => 'Stade',
 	'stade_change' => 'changer le stade',
-	'statut_prepa' => 'en construction',
+	'texte_statut_construction' => 'en construction',
 	'statut_en_attente' => '&agrave; valider',
-	'statut_complet' => 'complet',
-	'statut_places_libres' => 'places libres',
+	'texte_statut_complet' => 'complet',
+	'texte_statut_libre' => 'places libres',
 	'supprimer_gasap' => 'Supprimer le GASAP',
 	'supprimer_particulier' => 'Supprimer le particulier',
 	'supprimer_producteur' => 'Supprimer le producteur',

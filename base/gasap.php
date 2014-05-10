@@ -48,12 +48,11 @@ function gasap_declarer_tables_objets_sql($tables){
 			"remarques" => "TEXT DEFAULT '' NOT NULL",
 			"email" => "TEXT DEFAULT '' NOT NULL",
 			"nombre_place"	=> "int(2) NOT NULL",
-			"complet"	=> "int(1) NOT NULL",
 			"lat"	=> "TEXT DEFAULT '' NOT NULL",
 			"lng"	=> "TEXT DEFAULT '' NOT NULL",
 			"exporte"	=> "int(1) NOT NULL",
 			"maj" => "TIMESTAMP",
-			"statut" => "VARCHAR(10) DEFAULT '0' NOT NULL"
+			"statut" => "VARCHAR(15) DEFAULT 'prepa' NOT NULL"
 		),
 		'champs_editables' => array(
 				'nom','adresse','numero','code_postal','ville','pays',
@@ -71,7 +70,29 @@ function gasap_declarer_tables_objets_sql($tables){
 		'join' => array(
 			"id_gasap"=>"id_gasap",
 			"id_auteur"=>"id_auteur"
-		)
+		),
+		'statut'=> array(
+			array(
+				'champ' => 'statut',
+				'publie' => '!poubelle',
+				'previsu' => 'construction,libre,complet',
+				'post_date' => '',
+				'exception' => 'statut'
+			)
+		),
+		'statut_titres' => array(
+			'construction'=>'gasap:info_gasap_construction',
+			'libre'=>'gasap:info_gasap_libre',
+			'complet'=>'gasap:info_gasap_complet',
+			'poubelle'=>'gasap:info_gasap_supprime'
+		),
+		'statut_textes_instituer' => 	array(
+			'construction' => 'gasap:texte_statut_construction',
+			'libre' => 'gasap:texte_statut_libre',
+			'complet' => 'gasap:texte_statut_complet',
+			'poubelle' => 'texte_statut_poubelle',
+		),
+		'texte_changer_statut' => 'gasap:texte_gasap_statut'
 	);
 
 	$tables['spip_producteurs'] = array(
@@ -128,29 +149,7 @@ function gasap_declarer_tables_objets_sql($tables){
 		'join' => array(
 			"id_producteur"	=> "id_producteur",
 			"id_auteur" => "id_auteur"
-		),
-		'statut'=> array(
-			array(
-				'champ' => 'statut',
-				'publie' => '!poubelle',
-				'previsu' => 'construction,libre,complet',
-				'post_date' => '',
-				'exception' => 'statut'
-			)
-		),
-		'statut_titres' => array(
-			'construction'=>'gasap:info_gasap_construction',
-			'libre'=>'gasap:info_gasap_libre',
-			'complet'=>'gasap:info_gasap_complet',
-			'poubelle'=>'gasap:info_gasap_supprime'
-		),
-		'statut_textes_instituer' => 	array(
-			'construction' => 'gasap:texte_statut_construction',
-			'libre' => 'gasap:texte_statut_libre',
-			'complet' => 'gasap:texte_statut_complet',
-			'poubelle' => 'texte_statut_poubelle',
-		),
-		'texte_changer_statut' => 'gasap:texte_gasap_statut',
+		)
 	);
 
 	$tables['spip_particuliers'] = array(
