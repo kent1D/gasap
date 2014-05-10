@@ -118,7 +118,7 @@ function gasap_declarer_tables_objets_sql($tables){
 			"label_bio"	=> "int(1) NOT NULL",
 			"biodynamie"	=> "int(1) NOT NULL",
 			"type_culture"	=> "TEXT NOT NULL",
-			"type_evelvage"	=> "TEXT NOT NULL",
+			"type_elevage"	=> "TEXT NOT NULL DEFAULT ''",
 			"transformation"	=> "TEXT NOT NULL",
 			"taille_ferme"	=> "bigint(21) NOT NULL",
 			"distance_bruxelles"	=> "bigint(21) NOT NULL",
@@ -130,13 +130,13 @@ function gasap_declarer_tables_objets_sql($tables){
 		'champs_editables' => array(
 				'nom','prenom','adresse','numero','code_postal','ville','pays',
 				'telephone','fax','gsm','permanence','remarques','email',
-				'nom_ferme','label_bio','biodynamie','type_culture','type_evelvage','transformation',
+				'nom_ferme','label_bio','biodynamie','type_culture','type_elevage','transformation',
 				'taille_ferme','distance_bruxelles','stade','commentaires'
 		),
 		'rechercher_champs' => array(
 				'nom' => 8, 'prenom' => 5, 'adresse' => 3, 'code_postal' => 3, 'ville' => 5, 'pays' => 3,
 				'telephone' => 1, 'fax' => 1, 'gsm' => 1, 'permanence'=> 1, 'remarques' => 4, 'email' => 1,
-				'nom_ferme' => 8, 'label_bio' => 4, "biodynamie" => 1,'type_culture'=> 3, 'type_evelvage' => 3, 'transformation' => 2,
+				'nom_ferme' => 8, 'label_bio' => 4, "biodynamie" => 1,'type_culture'=> 3, 'type_elevage' => 3, 'transformation' => 2,
 				'taille_ferme' => 1, 'stade' => 1, 'commentaires' => 3
 		),
 		'key' => array(

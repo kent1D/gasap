@@ -23,6 +23,9 @@ function gasap_upgrade($nom_meta_base_version,$version_cible){
 	$maj['0.4.0'] = array(
 		array('gasap_changer_permanance','')
 	);
+	$maj['0.5.0'] = array(
+		array('gasap_changer_type_evelvage','')
+	);
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
@@ -75,12 +78,16 @@ function gasap_maj_anciens_statuts(){
 }
 
 function gasap_maj_statuts_tronques(){
-	sql_alter("TABLE spip_gasaps CHANGE `statut` `statut` VARCHAR(15)  NOT NULL DEFAULT 'prepa'");
+	sql_alter("TABLE spip_gasaps CHANGE `statut` `statut` VARCHAR(15) NOT NULL DEFAULT 'prepa'");
 	sql_updateq('spip_gasaps',array('statut'=>'construction'),'statut="constructi"');
 }
 
 function gasap_changer_permanance(){
-	sql_alter("TABLE spip_gasaps CHANGE `permanance` `permanence` TEXT  NOT NULL DEFAULT ''");
-	sql_alter("TABLE spip_producteurs CHANGE `permanance` `permanence` TEXT  NOT NULL DEFAULT ''");
+	sql_alter("TABLE spip_gasaps CHANGE `permanance` `permanence` TEXT NOT NULL DEFAULT ''");
+	sql_alter("TABLE spip_producteurs CHANGE `permanance` `permanence` TEXT NOT NULL DEFAULT ''");
+}
+
+function gasap_changer_type_evelvage(){
+	sql_alter("TABLE spip_producteurs CHANGE `type_evelvage` `type_elevage` TEXT NOT NULL DEFAULT ''");
 }
 ?>
