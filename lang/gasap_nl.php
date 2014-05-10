@@ -25,7 +25,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_contact_asso_nom' => 'Naam: ',
 
 //P
-	'permanance' => 'Levertijd',
+	'permanence' => 'Levertijd',
 
 //S
 	'stade' => 'Status',
