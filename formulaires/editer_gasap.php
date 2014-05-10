@@ -34,12 +34,20 @@ function formulaires_editer_gasap_verifier_dist($id_gasap='new', $retour='', $co
 	return $erreurs;
 }
 function formulaires_editer_gasap_traiter_dist($id_gasap='new', $retour='', $config_fonc='gasaps_edit_config', $row=array(), $hidden=''){
-	
-	//include_spip('inc/geocoder');
-	
-	// On vérifie les droits
-	if (!autoriser('modifier','gasap',$id_gasap))
-		return false;
+	/**
+	 * Si on n'a pas de latitude ni ou de longitude, on lance le géocoder
+	 */
+	if(!_request('lat') OR !_request('lng')){
+		include_spip('inc/distant');
+		$adresse = _request('numero').' '._request('adresse').', '._request('ville');
+		$url = 'http://nominatim.openstreetmap.org/search';
+		$url = parametre_url(parametre_url(parametre_url(parametre_url($url,'format','json','&'),'limit',1,'&'),'addressdetails',1,'&'),'q',$adresse,'&');
+		$geocoder = json_decode(recuperer_page($url),true);
+		if(is_array($geocoder) && is_array($geocoder[0])){
+			set_request('lat',$geocoder[0]['lat']);
+			set_request('lng',$geocoder[0]['lon']);
+		}
+	}
 
 	/**
 	 * TODO : réimplémenter le géocodeur
