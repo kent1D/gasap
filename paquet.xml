@@ -5,7 +5,7 @@
 	etat="stable"
 	compatibilite="[3.0.0;3.0.*]"
 	logo="images/gasap-24.png"
-	schema="0.3.0"
+	schema="0.4.0"
 >	
 
 	<nom>GASAP</nom>
