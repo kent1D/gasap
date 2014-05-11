@@ -52,7 +52,7 @@ function gasap_declarer_tables_objets_sql($tables){
 			"lng"	=> "TEXT DEFAULT '' NOT NULL",
 			"exporte"	=> "int(1) NOT NULL",
 			"maj" => "TIMESTAMP",
-			"statut" => "VARCHAR(15) DEFAULT 'prepa' NOT NULL"
+			"statut" => "VARCHAR(15) DEFAULT 'construction' NOT NULL"
 		),
 		'champs_editables' => array(
 				'nom','adresse','numero','code_postal','ville','pays',

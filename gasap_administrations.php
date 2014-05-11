@@ -78,7 +78,7 @@ function gasap_maj_anciens_statuts(){
 }
 
 function gasap_maj_statuts_tronques(){
-	sql_alter("TABLE spip_gasaps CHANGE `statut` `statut` VARCHAR(15) NOT NULL DEFAULT 'prepa'");
+	sql_alter("TABLE spip_gasaps CHANGE `statut` `statut` VARCHAR(15) NOT NULL DEFAULT 'construction'");
 	sql_updateq('spip_gasaps',array('statut'=>'construction'),'statut="constructi"');
 }
 
