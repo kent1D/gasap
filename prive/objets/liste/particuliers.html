@@ -1,0 +1,47 @@
+[(#SET{defaut_tri,#ARRAY{
+	maj,#ENV{date_sens,-1},
+	num nom,1,
+	prenom,1,
+	id_particulier,-1,
+	ville,1,
+	code_postal,1,
+	points,-1
+}})
+]<B_liste_art>
+#ANCRE_PAGINATION
+<div class="liste-objets particuliers">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{particulier:info_1_particulier,particulier:info_nb_particuliers}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th>
+			<th class='nom principale' scope='col'>[(#TRI{num nom,<:info_nom:>,ajax})]</th>
+			<th class='prenom nom principale' scope='col'>[(#TRI{prenom,<:gasap:titre_cadre_prenom:>,ajax})]</th>
+			<th class='code_postal' scope='col'>[(#TRI{code_postal,<:gasap:titre_cadre_code_postal:>,ajax})]</th>
+			<th class='ville' scope='col'>[(#TRI{ville,<:gasap:titre_cadre_commune:>,ajax})]</th>
+			<th class='id' scope='col'>[(#TRI{id_particulier,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_art(PARTICULIERS){id_particulier?}{where?}{statut?}{recherche?}{tri #ENV{par,id_particulier},#GET{defaut_tri}}{par nom,prenom}{pagination #ENV{nb,10}}>
+		[(#LANG|changer_typo)]
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class='statut'>[(#STATUT|puce_statut{particulier,#ID_PARTICULIER,#ID_RUBRIQUE})]</td>
+			<td class='nom principale'>[(#LOGO_PARTICULIER|image_reduire{20,26})]<a href="[(#ID_PARTICULIER|generer_url_entite{particulier})]" title="<:info_numero_abbreviation|attribut_html:> #ID_PARTICULIER">[(#RANG). ]#NOM</a></td>
+			<td class='prenom'>#PRENOM</td>
+			<td class='code_postal'>#CODE_POSTAL</td>
+			<td class='ville'>#VILLE</td>
+			<td class='id'>[(#AUTORISER{modifier,particulier,#ID_PARTICULIER}|?{
+				<a href="[(#URL_ECRIRE{particulier_edit,id_particulier=#ID_PARTICULIER})]">#ID_PARTICULIER</a>,
+				#ID_PARTICULIER
+			})]</td>
+		</tr>
+	</BOUCLE_liste_art>
+	[(#REM|changer_typo)]
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{#ENV{pagination,prive}})</p>]
+</div>
+</B_liste_art>[
+<div class="liste-objets particuliers caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_art>
