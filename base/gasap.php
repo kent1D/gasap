@@ -92,6 +92,13 @@ function gasap_declarer_tables_objets_sql($tables){
 			'complet' => 'gasap:texte_statut_complet',
 			'poubelle' => 'texte_statut_poubelle',
 		),
+		'statut_images' => array(
+			'gasap-16.png',
+			'construction'=>'gasap-construction-8.png',
+			'libre'=>'gasap-libre-8.png',
+			'complet'=>'gasap-complet-8.png',
+			'poubelle' => 'puce-supprimer-8.png'
+		),
 		'texte_changer_statut' => 'gasap:texte_gasap_statut'
 	);
 
