@@ -81,7 +81,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_gasap_libre' => 'Groupe avec place libre',
 	'info_gasap_poubelle' => 'Supprimé',
 	'info_nb_gasaps' => '@nb@ GASAPs',
-	'informations_complemeentaires' => 'Informations complémentaires',
+	'informations_complementaires' => 'Informations complémentaires',
 	'informations_generales' => 'Informations générales',
 
 // L
