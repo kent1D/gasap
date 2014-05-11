@@ -1,7 +1,7 @@
 #HTTP_HEADER{Content-Type: text/csv;}
 #HTTP_HEADER{Content-Disposition: attachment; filename=particuliers.csv}
 #CACHE{0}
-"personne_de_contacte";"prenom";"nom";"adresse";"code_postal";"commune";"telephone";"email";"composition_menage";"date";"remarques"
+"personne_de_contact";"prenom";"nom";"adresse";"code_postal";"commune";"telephone";"email";"composition_menage";"date";"remarques"
 <BOUCLE_Exp(PARTICULIERS){exporte=0}>"[(#PERSONNE_DE_CONTACTE|?{non,oui})]";"#PRENOM";"#NOM";"#ADRESSE";"#CODE_POSTAL";"#COMMUNE";"#TELEPHONE";"[(#EMAIL**)]";"#COMPOSITION_MENAGE";"[(#MAJ|jour)]/[(#MAJ|mois)]/[(#MAJ|annee)]";"#REMARQUES"
 </BOUCLE_Exp>
 

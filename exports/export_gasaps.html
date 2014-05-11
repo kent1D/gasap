@@ -2,4 +2,4 @@
 #HTTP_HEADER{Content-Disposition: attachment; filename=gasaps.csv}
 #CACHE{0}
 "id";"nom";"adresse";"numero";"code_postal";"ville";"pays";"telephone";"fax";"gsm";"permanence";"remarques";"email";"nombre_place";"complet"
-<BOUCLE_exp(GASAPS)>[(#SESSION{statut}|=={0minirezo}|oui)#ID_GASAP;"#NOM";"#ADRESSE";"#NUMERO";"#CODE_POSTAL";"#VILLE";"#PAYS";"#TELEPHONE";"#FAX";"#GSM";"#PERMANENCE";"#REMARQUES";"[(#EMAIL**)]";"#NOMBRE_PLACE";"#COMPLET"]</BOUCLE_exp>
+<BOUCLE_exp(GASAPS)>#ID_GASAP;"#NOM";"#ADRESSE";"#NUMERO";"#CODE_POSTAL";"#VILLE";"#PAYS";"#TELEPHONE";"#FAX";"#GSM";"#PERMANENCE";"#REMARQUES";"[(#EMAIL**)]";"#NOMBRE_PLACE";"#COMPLET"</BOUCLE_exp>
