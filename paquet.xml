@@ -4,7 +4,7 @@
 	categorie="edition"
 	etat="stable"
 	compatibilite="[3.0.0;3.0.*]"
-	logo="images/gasap-24.png"
+	logo="prive/themes/spip/images/gasap-24.png"
 	schema="0.5.0"
 >	
 
