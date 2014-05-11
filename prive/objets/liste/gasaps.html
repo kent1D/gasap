@@ -1,0 +1,46 @@
+[(#SET{defaut_tri,#ARRAY{
+	maj,#ENV{date_sens,-1},
+	num nom,1,
+	id_gasap,1,
+	ville,1,
+	code_postal,1,
+	points,-1
+}})
+]<B_liste_art>
+#ANCRE_PAGINATION
+<div class="liste-objets gasaps">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{gasap:info_1_gasap,gasap:info_nb_gasaps}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th>
+			<th class='nom principale' scope='col'>[(#TRI{num nom,<:info_nom:>,ajax})]</th>
+			<th class='code_postal' scope='col'>[(#TRI{code_postal,<:gasap:titre_cadre_code_postal:>,ajax})]</th>
+			<th class='ville' scope='col'>[(#TRI{ville,<:gasap:titre_cadre_commune:>,ajax})]</th>
+			<th class='maj secondaire' scope='col'>[(#TRI{maj,<:maj:>,ajax})]</th>
+			<th class='id' scope='col'>[(#TRI{id_gasap,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_art(GASAPS){id_gasap?}{where?}{statut?}{recherche?}{tri #ENV{par,code_postal},#GET{defaut_tri}}{par nom}{pagination #ENV{nb,10}}>
+		[(#LANG|changer_typo)]
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class='statut'>[(#STATUT|puce_statut{gasap,#ID_GASAP,#ID_RUBRIQUE})]</td>
+			<td class='titre principale'>[(#LOGO_GASAP|image_reduire{20,26})]<a href="[(#ID_GASAP|generer_url_entite{gasap})]" title="<:info_numero_abbreviation|attribut_html:> #ID_GASAP">[(#RANG). ]#NOM</a></td>
+			<td class='code_postal'>#CODE_POSTAL</td>
+			<td class='ville'>#VILLE</td>
+			<td class='maj secondaire'>[(#MAJ|affdate_jourcourt)]</td>
+			<td class='id'>[(#AUTORISER{modifier,gasap,#ID_GASAP}|?{
+				<a href="[(#URL_ECRIRE{gasap_edit,id_gasap=#ID_GASAP})]">#ID_GASAP</a>,
+				#ID_GASAP
+			})]</td>
+		</tr>
+	</BOUCLE_liste_art>
+	[(#REM|changer_typo)]
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{#ENV{pagination,prive}})</p>]
+</div>
+</B_liste_art>[
+<div class="liste-objets gasaps caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_art>
