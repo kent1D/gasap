@@ -174,7 +174,7 @@ function gasap_declarer_tables_objets_sql($tables){
 			"telephone" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"email" => "TEXT DEFAULT '' NOT NULL",
 			"remarques"	=> "TEXT NOT NULL",
-			"personne_de_contacte"	=> "TEXT NOT NULL",
+			"personne_de_contact"	=> "TEXT NOT NULL",
 			"composition_menage"	=> "int(1) NOT NULL",
 			"exporte"	=> "int(1) NOT NULL",
 			"maj" => "TIMESTAMP",
@@ -190,12 +190,12 @@ function gasap_declarer_tables_objets_sql($tables){
 			'telephone',
 			'email',
 			'remarques',
-			'personne_de_contacte',
+			'personne_de_contact',
 			'composition_menage'
 		),
 		'rechercher_champs' => array(
 			'nom' => 8, 'prenom' => 5, 'adresse' => 3, 'code_postal' => 3, 'ville' => 5, 'commune' => 3,
-			'telephone' => 1, 'email' => 1, 'remarques' => 4, 'personne_de_contacte' => 4, 'composition_menage' => 1
+			'telephone' => 1, 'email' => 1, 'remarques' => 4, 'personne_de_contact' => 4, 'composition_menage' => 1
 		),
 		'key' => array(
 			"PRIMARY KEY" => "id_particulier",
@@ -204,7 +204,34 @@ function gasap_declarer_tables_objets_sql($tables){
 		'join' => array(
 			"id_particulier" => "id_particulier",
 			"id_auteur" => "id_auteur"
-		)
+		),
+		'statut'=> array(
+				array(
+						'champ' => 'statut',
+						'publie' => '!poubelle',
+						'previsu' => 'en_attente,valide',
+						'post_date' => '',
+						'exception' => 'statut'
+				)
+		),
+		'statut_titres' => array(
+				'en_attente'=>'particulier:info_statut_en_attente',
+				'valide'=>'particulier:info_statut_valide',
+				'poubelle'=>'particulier:info_gasap_supprime'
+		),
+		'statut_textes_instituer' => 	array(
+				'en_attente' => 'particulier:texte_statut_en_attente',
+				'valide' => 'particulier:texte_statut_valide',
+				'poubelle' => 'texte_statut_poubelle',
+		),
+		'statut_images' => array(
+				'gasap-16.png',
+				'construction'=>'gasap-construction-8.png',
+				'libre'=>'gasap-libre-8.png',
+				'complet'=>'gasap-complet-8.png',
+				'poubelle' => 'puce-supprimer-8.png'
+		),
+		'texte_changer_statut' => 'particulier:texte_particulier_statut'
 	);
 
 	return $tables;

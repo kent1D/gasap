@@ -5,7 +5,7 @@
 	etat="stable"
 	compatibilite="[3.0.0;3.0.*]"
 	logo="prive/themes/spip/images/gasap-24.png"
-	schema="0.5.0"
+	schema="0.6.0"
 >	
 
 	<nom>GASAP</nom>

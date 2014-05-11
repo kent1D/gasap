@@ -13,15 +13,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 // E
 	'editer_particulier' => 'éditer le particulier',
 	'editer_un_particulier' => 'Editer un particulier',
-	'entree_composition_menage' => 'Vous cherchez un panier pour combien de personnes ?',
-	'entree_lieu' => 'Une petite description : ',
-	'entree_nombre_menage' => 'Entrez ici le nombre de personne que compose votre ménage',
-	'entree_permanence' => 'Indiquez ici les permanences de votre groupe.',
-	'entree_personne_contacte' => 'Voulez-vous &ecirc;tre la personne de contact?',
-	'entree_personne_de_contacte' => 'Voulez-vous &ecirc;tre la personne de contact?',
-	'entree_remarques' => 'Indiquez ici les éventuelles remarques concernant le groupe.',
-	'est_une_personne_de_contacte' => 'Cette personne est une personne de contacte.',
-	'etes_vous_sur_de_vouloir_supprimer_ce_gasap' => 'Etes-vous s&ucirc;r de vouloir supprimer ce GASAP ?',
 
 // G
 	'particulier_numero' => 'Numéro',
@@ -36,6 +27,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 // M
 
 	// T
+	'texte_particulier_statut' => 'Ce particulier est :',
+	'texte_statut_en_attente' => 'en attente',
+	'texte_statut_valide' => 'validé',
 	'titre_logo_particulier' => 'Logo du particulier',
 	'titre_particulier' => 'Particulier',
 	'titre_particuliers' => 'Les particuliers',

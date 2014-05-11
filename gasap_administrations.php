@@ -26,6 +26,9 @@ function gasap_upgrade($nom_meta_base_version,$version_cible){
 	$maj['0.5.0'] = array(
 		array('gasap_changer_type_evelvage','')
 	);
+	$maj['0.6.0'] = array(
+		array('gasap_changer_personne_contacte','')
+	);
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
@@ -89,5 +92,9 @@ function gasap_changer_permanance(){
 
 function gasap_changer_type_evelvage(){
 	sql_alter("TABLE spip_producteurs CHANGE `type_evelvage` `type_elevage` TEXT NOT NULL DEFAULT ''");
+}
+
+function gasap_changer_personne_contacte(){
+	sql_alter("TABLE spip_particuliers CHANGE `personne_de_contacte` `personne_de_contacte` TEXT NOT NULL DEFAULT ''");
 }
 ?>
