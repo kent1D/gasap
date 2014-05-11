@@ -1,0 +1,79 @@
+<BOUCLE_gasap(GASAPS){id_gasap = #ENV{id,#ENV{id_gasap}}}>
+<div id="map_preview" class="carte_gis" style="width: 100%; height: 150px;"></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function($){
+	var init_map_preview = function() {
+		var map_preview;
+		var map_preview_container = 'map_preview';
+		var marker;
+		
+		map_preview = new L.Map(map_preview_container);
+		
+		map_preview.attributionControl.setPrefix('');
+		
+		var base_layer = [new (#EVAL{$GLOBALS\['gis_layers'\]}|table_valeur{[(#REM|gis_layer_defaut)]/layer})];
+		map_preview.addLayer(base_layer);
+		
+		map_preview.setView(new L.LatLng([(#LAT)],[(#LNG)]),[(#ZOOM|sinon{#CONFIG{gis/zoom,0}})]);
+		
+		[(#REM) On ajoute les points ou le point unique suivant les params ]
+		var data = {
+			"type": "FeatureCollection",
+			"features": [
+		
+				{"type": "Feature",
+					"geometry": {"type": "Point", "coordinates": [#LNG, #LAT]},
+					"id":"#ID_GASAP",
+					"properties": {
+						"title":[(#NOM|supprimer_numero|json_encode)],
+						"description":[(#DESCRIPTIF|json_encode)][,(#LOGO_GASAP|oui)
+						[(#SET{logo_doc,#LOGO_GASAP|image_passe_partout{28,28}|image_recadre{28,28}|image_recadre{32,32,center}|image_aplatir{jpg,ffffff}})]
+						#SET{icon_w,#GET{logo_doc}|extraire_attribut{src}|largeur}
+						#SET{icon_h,#GET{logo_doc}|extraire_attribut{src}|hauteur}
+						["icon": (#GET{logo_doc}|extraire_attribut{src}|url_absolue|json_encode)],
+						"icon_size": \[#GET{icon_w},#GET{icon_h}\],
+						"icon_anchor": \[[(#GET{icon_w}|div{2})],[(#GET{icon_h})]\],
+						"popup_anchor": \[1,[-(#GET{icon_h}|div{1.2})]\]]
+					}
+				}
+
+			]
+		};
+		
+		
+		if (data) {
+			var geojson = new L.geoJson('', {
+				onEachFeature: function (feature, layer) {
+					if (feature.properties && feature.properties.icon){
+						layer.setIcon(new L.Icon({
+							iconUrl: feature.properties.icon,
+							iconSize: new L.Point( feature.properties.icon_size\[0\], feature.properties.icon_size\[1\] ),
+							iconAnchor: new L.Point( feature.properties.icon_anchor\[0\], feature.properties.icon_anchor\[1\] ),
+							popupAnchor: new L.Point( feature.properties.popup_anchor\[0\], feature.properties.popup_anchor\[1\] )
+						}));
+					}
+					if (feature.properties && feature.properties.title){
+						var popupContent = '<strong>' + feature.properties.title + '</strong>';
+						if (feature.properties.description)
+							popupContent = popupContent + feature.properties.description;
+						layer.bindPopup(popupContent);
+					}
+				}
+			}).addTo(map_preview);
+			geojson.addData(data);
+			[(#GET{autocenter}|oui)
+			map_preview.fitBounds(geojson.getBounds());]
+		}
+	}
+
+	$(function(){
+		jQuery.getScript('[(#PRODUIRE{fond=javascript/gis.js}|compacte)]',function(){
+			init_map_preview();
+		});
+	});
+
+})(jQuery);
+/*]]>*/
+</script>
+</BOUCLE_gasap>
