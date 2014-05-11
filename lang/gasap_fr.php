@@ -128,6 +128,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 // T
 	'taille_ferme' => 'Taille de la ferme',
+	'texte_gasap_statut' => 'Ce GASAP est :',
 	'titre_cadre_adresse' => 'Adresse',
 	'titre_cadre_biodynamie' => 'Biodynamie',
 	'titre_cadre_code_postal' => 'Code postal',
@@ -135,6 +136,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_cadre_commune' => 'Commune',
 	'titre_cadre_communes' => 'Commune',
 	'titre_cadre_composition_menage' => 'Composition du m&eacute;nage',
+	'titre_cadre_contacts' => 'Contacts',
 	'titre_cadre_courriel' => 'E-Mail',
 	'titre_cadre_distance_bruxelles' => 'Distance de bruxelles',
 	'titre_cadre_email' => 'E-Mail',

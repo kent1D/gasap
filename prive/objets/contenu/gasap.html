@@ -1,0 +1,58 @@
+<BOUCLE_afficher_contenu(GASAPS){id_gasap=#ENV{id}}{statut?}>
+[(#LANG|changer_typo)]
+<h3 class="h3"><:gasap:titre_cadre_adresse:></h3>
+
+<div class="champ contenu_adresse[ (#ADRESSE*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_adresse:></div>
+<div dir='#LANG_DIR' class='#EDIT{adresse} adresse'>#ADRESSE[, (#NUMERO)]</div>
+</div>
+<div class="champ contenu_code_postal[ (#CODE_POSTAL*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_code_postal:></div>
+<div dir='#LANG_DIR' class='#EDIT{code_postal} code_postal'>#CODE_POSTAL</div>
+</div>
+<div class="champ contenu_ville[ (#VILLE*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_ville:></div>
+<div dir='#LANG_DIR' class='#EDIT{ville} ville'>#VILLE</div>
+</div>
+<div class="champ contenu_pays[ (#PAYS*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_pays:></div>
+<div dir='#LANG_DIR' class='#EDIT{pays} pays'>#PAYS</div>
+</div>
+
+#MODELE{carte_preview,id=#ENV{id}}
+
+<h3 class="h3"><:gasap:titre_cadre_contacts:></h3>
+
+[<div class="champ telephone[ (#TELEPHONE*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_telephone:></div>
+<div dir='#LANG_DIR' class='#EDIT{telephone} telephone'>(#TELEPHONE)</div>
+</div>]
+
+[<div class="champ contenu_fax[ (#FAX*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_fax:></div>
+<div dir='#LANG_DIR' class='#EDIT{fax} fax'>(#FAX)</div>
+</div>]
+
+[<div class="champ contenu_gsm[ (#GSM*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_gsm:></div>
+<div dir='#LANG_DIR' class='#EDIT{gsm} gsm'>(#GSM)</div>
+</div>]
+
+<div class="champ contenu_email[ (#EMAIL*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_email:></div>
+<div dir='#LANG_DIR' class='#EDIT{email} email'>#EMAIL</div>
+</div>
+
+<h3 class="h3"><:gasap:informations_complemeentaires:></h3>
+
+<div class="champ contenu_permanence[ (#PERMANENCE*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_permanence:></div>
+<div dir='#LANG_DIR' class='#EDIT{permanence} permanence'>#PERMANENCE</div>
+</div>
+
+<div class="champ contenu_remarques[ (#REMARQUES*|strlen|?{'',vide})]">
+<div class='label'><:gasap:titre_cadre_remarques:></div>
+<div dir='#LANG_DIR' class='#EDIT{remarques} remarques'>#REMARQUES</div>
+</div>
+[(#REM|changer_typo)]
+</BOUCLE_afficher_contenu>
