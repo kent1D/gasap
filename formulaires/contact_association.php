@@ -3,19 +3,23 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function formulaires_contact_association_charger_dist(){
-	$valeurs = Array();
-	(_request('nom')?$valeurs['nom'] = _request('nom'):$valeurs['nom'] =$valeurs['nom']);
-	(_request('email')?$valeurs['email'] = _request('email'):$valeurs['email'] =$valeurs['email']);
-	(_request('texte')?$valeurs['texte'] = _request('texte'):$valeurs['texte'] =$valeurs['texte']);
+	$valeurs = array();
+	foreach(array('nom','email','texte','id_contact') as $champ){
+		$valeurs[$champ] = _request($champ);
+	}
 	return $valeurs;
-	
 }
 
 function formulaires_contact_association_verifier_dist(){
-	$erreurs = Array();
+	$erreurs = array();
 	
-	include_spip('inc/filtres');
-	
+	foreach(array('nom','texte','email') as $champ){
+		if(!_request($champ) OR strlen(_request($champ)) <  2){
+			$erreurs[$champ] = _T('info_obligatoire');
+		}
+	}
+
+		include_spip('inc/filtres');
 	if (_request('email') AND !email_valide(_request('email')))
 		$erreurs['email'] = _T('gasap:ce_mail_n_est_pas_valide');
 	
@@ -27,11 +31,11 @@ function formulaires_contact_association_verifier_dist(){
 
 function formulaires_contact_association_traiter_dist(){
 	include_spip("base/abstract_sql");
-	$valeurs = Array();
+	$valeurs = array();
 	
-	(_request('nom')?$valeurs['nom'] = _request('nom'):$valeurs['nom'] =$valeurs['nom']);
-	(_request('email')?$valeurs['email'] = _request('email'):$valeurs['email'] =$valeurs['email']);
-	(_request('texte')?$valeurs['texte'] = _request('texte'):$valeurs['texte'] =$valeurs['texte']);
+	foreach(array('nom','email','texte','id_contact') as $champ){
+		$valeurs[$champ] = _request($champ);
+	}
 
 	$corps = _T('gasap:message_contact_asso_intro') . "\n" .
 _T('gasap:message_contact_asso_nom') . $valeurs['nom'] . "\n" .
@@ -40,7 +44,7 @@ _T('gasap:message_contact_asso_message') . $valeurs['texte'];
 
 	$reply = $valeurs['email'];
 	
-	switch (_request('id_contact')){
+	switch ($valeurs['id_contact']){
 		case '1':
 			$email = "coordinateur@gasap.be";
 		break;

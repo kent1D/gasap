@@ -27,7 +27,7 @@ function formulaires_contact_gasap_verifier_dist($id_gasap){
 	
 	include_spip('inc/filtres');
 	
-	foreach(array('email','texte','email') as $champ){
+	foreach(array('nom','texte','email') as $champ){
 		if(!_request($champ) OR strlen(_request($champ)) <  2){
 			$erreurs[$champ] = _T('info_obligatoire');
 		}
