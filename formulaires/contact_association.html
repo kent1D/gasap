@@ -10,16 +10,15 @@
 					<fieldset>
 						<h3 class="legend"><:gasap:qui_voulez_vous_contacter:></h3>
 						<ul>
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{id_contact}}
-							<li class="editer_id_contact obligatoire[ (#GET{erreurs}|oui)erreur]">
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<select name="id_contact" class='select' id='id_contact' >								
+							<li class="editer editer_id_contact obligatoire[(#ENV**{erreurs}|table_valeur{id_contact}|oui)erreur]">
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{id_contact})</span>]
+								<select name="id_contact" class='select' id='champ_id_contact'>
 									<option value="" ></option>
-									<option value="1" >La coordination</option>
-									<option value="2" >Le noyau</option>
-									<option value="3" >L&#39;&eacute;quipe &quot;aide cr&eacute;ation nouveau GASAP&quot;</option>
-									<option value="4" >L&#39;&eacute;quipe communication</option>
-									<option value="5" >L&#39;&eacute;quipe producteurs</option>
+									<option value="1"[(#ENV{id_contact}|=={1}|oui)selected="selected"]><:gasap:info_contact_coordination:></option>
+									<option value="2"[(#ENV{id_contact}|=={2}|oui)selected="selected"]><:gasap:info_contact_noyau:></option>
+									<option value="3"[(#ENV{id_contact}|=={3}|oui)selected="selected"]><:gasap:info_contact_aide_creation:></option>
+									<option value="4"[(#ENV{id_contact}|=={4}|oui)selected="selected"]><:gasap:info_contact_communication:></option>
+									<option value="5"[(#ENV{id_contact}|=={5}|oui)selected="selected"]><:gasap:info_contact_producteurs:></option>
 								</select>
 							</li>
 						</ul>
@@ -29,17 +28,15 @@
 					<fieldset>
 						<h3 class="legend"><:gasap:qui_etes_vous:></h3>
 						<ul>
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{nom}}
-							<li class="editer_nom obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
 								<label for="nom"><:gasap:titre_cadre_nom:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='nom' id='nom' value="[(#ENV**{nom})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{nom})</span>]
+								<input type='text' class='text' name='nom' id='champ_nom' value="[(#ENV**{nom})]" />
 							</li>
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{email}}
-							<li class="editer_email obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_email obligatoire[(#ENV**{erreurs}|table_valeur{email}|oui)erreur]">
 								<label for="email"><:gasap:titre_cadre_email:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='email' id='email' value="[(#ENV**{email})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{email})</span>]
+								<input type='text' class='text' name='email' id='champ_email' value="[(#ENV**{email})]" />
 							</li>
 						</ul>
 					</fieldset>
@@ -48,17 +45,17 @@
 					<fieldset>
 						<h3 class="legend"><:gasap:votre_message:></h3>
 						<ul>
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{texte}}
-							<li class="editer_texte obligatoire[ (#GET{erreurs}|oui)erreur]">
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<textarea class='textarea' name='texte' id='texte'>[(#ENV**{texte})]</textarea>
+							<li class="editer editer_texte obligatoire[(#ENV**{erreurs}|table_valeur{texte}|oui)erreur]">
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{texte})</span>]
+								<textarea class='textarea' name='texte' id='champ_texte'>[(#ENV**{texte})]</textarea>
 							</li>
 						</ul>
 					</fieldset>
 				</li>
 			</ul>
-			<p class="boutons"><input type="submit" class="submit" value="<:gasap:pass_ok:>" /></p>
+			<p class="boutons">
+				<input type="submit" class="submit" value="<:bouton_valider:>" />
+			</p>
 		</div>
-	</form>
-	]
+	</form>]
 </div>
