@@ -12,44 +12,44 @@
 						<h3 class="legend"><:gasap:informations_generales:></h3>
 						<ul>
 							<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
-								<label for="nom"><:gasap:titre_cadre_nom:></label>
+								<label for="champ_nom"><:gasap:titre_cadre_nom:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{nom})</span>]
-								<input type='text' class='text' name='nom' id='nom' value="[(#ENV**{nom})]" />
+								<input type='text' class='text' name='nom' id='champ_nom' value="[(#ENV**{nom})]" />
 							</li>
 							<li class="editer editer_prenom obligatoire[(#ENV**{erreurs}|table_valeur{prenom}|oui)erreur]">
-								<label for="prenom"><:gasap:titre_cadre_prenom:></label>
+								<label for="champ_prenom"><:gasap:titre_cadre_prenom:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{prenom})</span>]
-								<input type='text' class='text' name='prenom' id='prenom' value="[(#ENV**{prenom})]" />
+								<input type='text' class='text' name='prenom' id='champ_prenom' value="[(#ENV**{prenom})]" />
 							</li>
 							<li class="editer editer_adresse obligatoire[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
-								<label for="adresse"><:gasap:titre_cadre_adresse:></label>
+								<label for="champ_adresse"><:gasap:titre_cadre_adresse:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{adresse})</span>]
-								<input type='text' class='text' name='adresse' id='adresse' value="[(#ENV**{adresse})]" />
+								<input type='text' class='text' name='adresse' id='champ_adresse' value="[(#ENV**{adresse})]" />
 							</li>
 							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
-								<label for="code_postal"><:gasap:titre_cadre_code_postal:></label>
+								<label for="champ_code_postal"><:gasap:titre_cadre_code_postal:></label>
 								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='code_postal' id='code_postal' value="[(#ENV**{code_postal})]" />
+								<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
 							</li>
 							<li class="editer editer_ville obligatoire[(#ENV**{erreurs}|table_valeur{ville}|oui)erreur]">
-								<label for="ville"><:gasap:titre_cadre_ville:></label>
+								<label for="champ_ville"><:gasap:titre_cadre_ville:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{ville})</span>]
-								<input type='text' class='text' name='ville' id='ville' value="[(#ENV**{ville})]" />
+								<input type='text' class='text' name='ville' id='champ_ville' value="[(#ENV**{ville})]" />
 							</li>
 							<li class="editer editer_commune obligatoire[(#ENV**{erreurs}|table_valeur{commune}|oui)erreur]">
-								<label for="commune"><:gasap:titre_cadre_commune:></label>
+								<label for="champ_commune"><:gasap:titre_cadre_commune:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{commune})</span>]
-								<input type='text' class='text' name='commune' id='commune' value="[(#ENV**{commune})]" />
+								<input type='text' class='text' name='commune' id='champ_commune' value="[(#ENV**{commune})]" />
 							</li>
 							<li class="editer editer_telephone[(#ENV**{erreurs}|table_valeur{telephone}|oui)erreur]">
-								<label for="telephone"><:gasap:titre_cadre_telephone:></label>
+								<label for="champ_telephone"><:gasap:titre_cadre_telephone:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{telephone})</span>]
-								<input type='text' class='text' name='telephone' id='telephone' value="[(#ENV**{telephone})]" />
+								<input type='text' class='text' name='telephone' id='champ_telephone' value="[(#ENV**{telephone})]" />
 							</li>
 							<li class="editer editer_email obligatoire[ (#ENV**{erreurs}|table_valeur{email}|oui)erreur]">
-								<label for="email"><:gasap:titre_cadre_email:></label>
+								<label for="champ_email"><:gasap:titre_cadre_email:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{email})</span>]
-								<input type='text' class='text' name='email' id='email' value="[(#ENV**{email})]" />
+								<input type='text' class='text' name='email' id='champ_email' value="[(#ENV**{email})]" />
 							</li>
 						</ul>
 					</fieldset>
@@ -59,29 +59,29 @@
 						<h3 class="legend"><:gasap:informations_complementaires:></h3>
 						<ul>
 							<li class="editer editer_composition_menage[(#ENV**{erreurs}|table_valeur{composition_menage}|oui)erreur]">
-								<label for="composition_menage"><:gasap:titre_cadre_composition_menage:></label>
+								<label for="champ_composition_menage"><:gasap:titre_cadre_composition_menage:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{composition_menage})</span>]
 								<p class='explication'><:gasap:entree_composition_menage:></p>
-								<input type='text' class='text' name='composition_menage' id='composition_menage' value="[(#ENV**{composition_menage})]" />
+								<input type='text' class='text' name='composition_menage' id='champ_composition_menage' value="[(#ENV**{composition_menage})]" />
 							</li>
 							<li class="editer editer_personne_de_contact[(#ENV**{erreurs}|table_valeur{personne_de_contact}|oui)erreur]">
-								<label for="personne_de_contact"><:gasap:titre_cadre_personne_de_contact:></label>
+								<label><:gasap:titre_cadre_personne_de_contact:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{personne_de_contact})</span>]
 								<p class='explication'><:gasap:entree_personne_de_contact:></p>
 								<div class="choix">
-									<input type='radio' class="radio" name='personne_de_contact' value='0' id='syndication_0'[ (#ENV{personne_de_contact,0}|=={0}|oui)checked="checked"] />
-									<label for='syndication_0'><:gasap:non:></label>
+									<input type='radio' class="radio" name='personne_de_contact' value='0' id='champ_syndication_0'[ (#ENV{personne_de_contact,0}|=={0}|oui)checked="checked"] />
+									<label for='champ_syndication_0'><:gasap:non:></label>
 								</div>
 								<div class="choix">
-									<input type='radio' class="radio" name='personne_de_contact' value='1' id='syndication_1'[ (#ENV{personne_de_contact,0}|=={1}|oui)checked="checked"] />
-									<label for='syndication_1'><:gasap:oui:></label>
+									<input type='radio' class="radio" name='personne_de_contact' value='1' id='champ_syndication_1'[ (#ENV{personne_de_contact,0}|=={1}|oui)checked="checked"] />
+									<label for='champ_syndication_1'><:gasap:oui:></label>
 								</div>
 							</li>
 							<li class="editer editer_remarques obligatoire[(#ENV**{erreurs}|table_valeur{remarques}|oui)erreur]">
-								<label for="remarques"><:gasap:titre_cadre_remarques:></label>
+								<label for="champ_remarques"><:gasap:titre_cadre_remarques:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{remarques})</span>]
 								<p class='explication'><:gasap:entree_remarques:></p>
-								<textarea class='textarea' name='remarques' id='remarques'>[(#ENV**{remarques})]</textarea>
+								<textarea class='textarea' name='remarques' id='champ_remarques'>[(#ENV**{remarques})]</textarea>
 							</li>
 						</ul>
 					</fieldset>
