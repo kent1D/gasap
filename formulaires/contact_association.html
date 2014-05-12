@@ -29,12 +29,12 @@
 						<h3 class="legend"><:gasap:qui_etes_vous:></h3>
 						<ul>
 							<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
-								<label for="nom"><:gasap:titre_cadre_nom:></label>
+								<label for="champ_nom"><:gasap:titre_cadre_nom:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{nom})</span>]
 								<input type='text' class='text' name='nom' id='champ_nom' value="[(#ENV**{nom})]" />
 							</li>
 							<li class="editer editer_email obligatoire[(#ENV**{erreurs}|table_valeur{email}|oui)erreur]">
-								<label for="email"><:gasap:titre_cadre_email:></label>
+								<label for="champ_email"><:gasap:titre_cadre_email:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{email})</span>]
 								<input type='text' class='text' name='email' id='champ_email' value="[(#ENV**{email})]" />
 							</li>

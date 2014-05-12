@@ -9,17 +9,17 @@
 			<fieldset>
 				<ul>
 					<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
-						<label for="nom"><:gasap:titre_cadre_nom:></label>
+						<label for="champ_nom"><:gasap:titre_cadre_nom:></label>
 						[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{nom})</span>]
 						<input type='text' class='text' name='nom' id='champ_nom' value="[(#ENV**{nom})]" />
 					</li>
 					<li class="editer editer_email obligatoire[(#ENV**{erreurs}|table_valeur{email}|oui)erreur]">
-						<label for="email"><:gasap:titre_cadre_email:></label>
+						<label for="champ_email"><:gasap:titre_cadre_email:></label>
 						[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{email})</span>]
 						<input type='text' class='text' name='email' id='champ_email' value="[(#ENV**{email})]" />
 					</li>
 					<li class="editer editer_texte obligatoire[(#ENV**{erreurs}|table_valeur{texte}|oui)erreur]">
-						<label for="texte"><:gasap:votre_message:></label>
+						<label for="champ_texte"><:gasap:votre_message:></label>
 						[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{texte})</span>]
 						<textarea class='textarea' name='texte' id='champ_texte'>[(#ENV**{texte})]</textarea>
 					</li>
