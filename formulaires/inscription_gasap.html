@@ -5,118 +5,93 @@
 	<form action="#ENV{action}" method="post">
 		<div>
 			[(#ACTION_FORMULAIRE{#ENV{action}})]
-			[<input type="hidden" name="id_auteur" value="(#SESSION{id_auteur})" />]
 			[<input type="hidden" name="id_gasap" value="(#ENV{id_gasap})" />]
-			[<input type="hidden" name="new" value="(#ENV{new})" />]
 			<ul>
 				<li class="fieldset">
 					<fieldset>
 						<h3 class="legend"><:gasap:informations_generales:></h3>
 						<ul>
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{nom}}
-							<li class="editer_nom obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
 								<label for="nom"><:gasap:titre_cadre_nom:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='nom' id='nom' value="[(#ENV**{nom})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{nom})</span>]
+								<input type='text' class='text' name='nom' id='champ_nom' value="[(#ENV**{nom})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{bfg_god_mode}}
-							<li class="editer_bfg_god_mode obligatoire[ (#GET{erreurs}|oui)erreur]" style="display: none;">
+							<li class="editer editer_bfg_god_mode obligatoire[(#ENV**{erreurs}|table_valeur{bfg_god_mode}|oui)erreur]" style="display: none;">
 								<label for="bfg_god_mode"><:gasap:titre_cadre_bfg_god_mode:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='bfg_god_mode' id='bfg_god_mode' value="[(#ENV**{bfg_god_mode})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{bfg_god_mode})</span>]
+								<input type='text' class='text' name='bfg_god_mode' id='champ_bfg_god_mode' value="[(#ENV**{bfg_god_mode})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{adresse}}
-							<li class="editer_adresse obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_adresse obligatoire[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
 								<label for="adresse"><:gasap:titre_cadre_adresse:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='adresse' id='adresse' value="[(#ENV**{adresse})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{adresse})</span>]
+								<input type='text' class='text' name='adresse' id='champ_adresse' value="[(#ENV**{adresse})]" />
 							</li>
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{numero}}
-							<li class="editer_numero obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_numero obligatoire[(#ENV**{erreurs}|table_valeur{numero}|oui)erreur]">
 								<label for="numero"><:gasap:titre_cadre_numero:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='numero' id='numero' value="[(#ENV**{numero})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{numero})</span>]
+								<input type='text' class='text' name='numero' id='champ_numero' value="[(#ENV**{numero})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{code_postal}}
-							<li class="editer_code_postal obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
 								<label for="code_postal"><:gasap:titre_cadre_code_postal:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='code_postal' id='code_postal' value="[(#ENV**{code_postal})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]
+								<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{ville}}
-							<li class="editer_ville obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_ville obligatoire[(#ENV**{erreurs}|table_valeur{ville}|oui)erreur]">
 								<label for="ville"><:gasap:titre_cadre_ville:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='ville' id='ville' value="[(#ENV**{ville})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{ville})</span>]
+								<input type='text' class='text' name='ville' id='champ_ville' value="[(#ENV**{ville})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{pays}}
-							<li class="editer_pays obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_pays obligatoire[(#ENV**{erreurs}|table_valeur{pays}|oui)erreur]">
 								<label for="pays"><:gasap:titre_cadre_pays:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='pays' id='pays' value="[(#ENV**{pays})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{pays})</span>]
+								<input type='text' class='text' name='pays' id='champ_pays' value="[(#ENV**{pays})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{courriel}}
-							<li class="editer_courriel obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_courriel obligatoire[(#ENV**{erreurs}|table_valeur{courriel}|oui)erreur]">
 								<label for="courriel"><:gasap:titre_cadre_courriel:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='courriel' id='courriel' value="[(#ENV**{courriel})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{courriel})</span>]
+								<input type='text' class='text' name='courriel' id='champ_courriel' value="[(#ENV**{courriel})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{telephone}}
-							<li class="editer_telephone[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_telephone[(#ENV**{erreurs}|table_valeur{telephone}|oui)erreur]">
 								<label for="telephone"><:gasap:titre_cadre_telephone:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='telephone' id='telephone' value="[(#ENV**{telephone})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{telephone})</span>]
+								<input type='text' class='text' name='telephone' id='champ_telephone' value="[(#ENV**{telephone})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{fax}}
-							<li class="editer_fax[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_fax[(#ENV**{erreurs}|table_valeur{fax}|oui)erreur]">
 								<label for="fax"><:gasap:titre_cadre_fax:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='fax' id='fax' value="[(#ENV**{fax})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{fax})</span>]
+								<input type='text' class='text' name='fax' id='champ_fax' value="[(#ENV**{fax})]" />
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{gsm}}
-							<li class="editer_gsm[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_gsm[(#ENV**{erreurs}|table_valeur{gsm}|oui)erreur]">
 								<label for="gsm"><:gasap:titre_cadre_gsm:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<input type='text' class='text' name='gsm' id='gsm' value="[(#ENV**{gsm})]" />
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{gsm})</span>]
+								<input type='text' class='text' name='gsm' id='champ_gsm' value="[(#ENV**{gsm})]" />
 							</li>
 						</ul>
 					</fieldset>
 				</li>
 				<li class="fieldset">
 					<fieldset>
-						<h3 class="legend"><:gasap:informations_complemeentaires:></h3>
+						<h3 class="legend"><:gasap:informations_complementaires:></h3>
 						<ul>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{permanance}}
-							<li class="editer_permanance obligatoire[ (#GET{erreurs}|oui)erreur]">
-								<label for="permanance"><:gasap:titre_cadre_permanance:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
-								<p class='explication'><:gasap:entree_permanance:></p>
-								<textarea class='textarea' name='permanance' id='permanance'>[(#ENV**{permanance})]</textarea>
+							<li class="editer editer_permanence obligatoire[(#ENV**{erreurs}|table_valeur{permanence}|oui)erreur]">
+								<label for="permanence"><:gasap:titre_cadre_permanence:></label>
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{permanence})</span>]
+								<p class='explication'><:gasap:entree_permanence:></p>
+								<textarea class='textarea' name='permanence' id='champ_permanence'>[(#ENV**{permanence})]</textarea>
 							</li>
-							
-							#SET{erreurs,#ENV**{erreurs}|table_valeur{remarques}}
-							<li class="editer_remarques obligatoire[ (#GET{erreurs}|oui)erreur]">
+							<li class="editer editer_remarques obligatoire[(#ENV**{erreurs}|table_valeur{remarques}|oui)erreur]">
 								<label for="remarques"><:gasap:titre_cadre_remarques:></label>
-								[<span class='erreur_message'>(#GET{erreurs})</span>]
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{remarques})</span>]
 								<p class='explication'><:gasap:entree_remarques:></p>
-								<textarea class='textarea' name='remarques' id='remarques'>[(#ENV**{remarques})]</textarea>
+								<textarea class='textarea' name='remarques' id='champ_remarques'>[(#ENV**{remarques})]</textarea>
 							</li>
 						</ul>
 					</fieldset>
 				</li>
 			</ul>
-			<p class="boutons"><input type="submit" class="submit" value="<:gasap:pass_ok:>" /></p>
+			<p class="boutons">
+				<input type="submit" class="submit" value="<:bouton_valider:>" />
+			</p>
 		</div>
-	</form>
-	]
+	</form>]
 </div>
