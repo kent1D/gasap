@@ -60,6 +60,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 // I
 	'icone_creer_gasap' => 'Créer un GASAP',
+	'icone_gerer_gasaps' => 'Gérer les GASAPs',
+	'icone_gerer_particuliers' => 'Gérer les particuliers',
 	'icone_modifier_gasap' => 'Modifier le GASAP',
 	'indiquer_ca_gasap_comme_complet' => 'Dire que ce GASAP est complet',
 	'indiquer_ca_gasap_comme_incomplet' => 'Dire que ce GASAP n\'est pas complet',

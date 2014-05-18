@@ -1,4 +1,8 @@
 #BOITE_OUVRIR
+	[(#ENV{exec}|=={gasaps}|oui)
+	[(#URL_ECRIRE{particuliers}|icone_horizontale{<:gasap:icone_gerer_particuliers:>,gasap-16.png})]]
+	[(#ENV{exec}|=={particuliers}|oui)
+	[(#URL_ECRIRE{gasaps}|icone_horizontale{<:gasap:icone_gerer_gasaps:>,gasap-16.png})]]
 	<h4><:gasap:titre_exports:></h4>
 	[(#BOUTON_ACTION{<:gasap:bouton_exporter_particuliers:>,#URL_ACTION_AUTEUR{exporter_gasap,'particuliers'}})]
 #BOITE_FERMER
