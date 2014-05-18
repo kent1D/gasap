@@ -9,7 +9,6 @@
 			<ul>
 				<li class="fieldset">
 					<fieldset>
-						<h3 class="legend"><:gasap:formulaire_inscription:></h3>
 						<ul>
 							<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
 								<label for="champ_nom"><:gasap:titre_cadre_nom:>*</label>
@@ -26,6 +25,7 @@
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{prenom})</span>]
 								<input type='text' class='text' name='prenom' id='champ_prenom' value="[(#ENV**{prenom})]" />
 							</li>
+							[(#REM)
 							<li class="editer editer_adresse obligatoire[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
 								<label for="champ_adresse"><:gasap:titre_cadre_adresse:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{adresse})</span>]
@@ -45,7 +45,7 @@
 								<label for="champ_commune"><:gasap:titre_cadre_commune:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{commune})</span>]
 								<input type='text' class='text' name='commune' id='champ_commune' value="[(#ENV**{commune})]" />
-							</li>
+							</li>]
 							<li class="editer editer_telephone[(#ENV**{erreurs}|table_valeur{telephone}|oui)erreur]">
 								<label for="champ_telephone"><:gasap:titre_cadre_telephone:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{telephone})</span>]
