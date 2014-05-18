@@ -56,18 +56,18 @@ function formulaires_inscription_gasap_traiter_dist($id_gasap='new', $retour='',
 
 Coordonnee:
 ------------
-nom: "._request('nom')."
-adresse: "._request('adresse')."
-numero: "._request('numero')."
-code_postal: "._request('code_postal')."
-ville: "._request('ville')."
-pays: "._request('pays')."
-Téléphone: "._request('telephone')."
+Nom : "._request('nom')."
+Adresse : "._request('adresse')."
+Numero : "._request('numero')."
+Code_postal: "._request('code_postal')."
+Ville : "._request('ville')."
+Pays : "._request('pays')."
+Téléphone : "._request('telephone')."
 Fax : "._request('fax')."
 Gsm : "._request('gsm')."
-E-Mail: "._request('email')."
+E-Mail : "._request('email')."
 
-Pour plus d'info, l'inscription est reprise dans le partie privée du site.
+Pour plus d'info, l'inscription est reprise dans la partie privée du site.
 ";
 		$envoyer_mail(lire_config('email_webmaster'), "Inscription d'un GASAP", $corps);
 	}else{
