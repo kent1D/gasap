@@ -171,8 +171,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'type_elevage' => 'Type d\'elevage',
 
 // U
-	'votre_inscription_a_reussi_un_organisateur_vas_vous_contacter' => 'Votre inscription s\'est bien passée.<br /> Vous serez contactés quand un nouveau GASAP se crée dans votre commune ou quand un place se lib&egrave;re.',
-	'votre_inscription_a_echoue_veuillez_reeseyer_plus_tard' => 'Votre inscription ne s\'est pas déroulée correctement.<br />Veuillez reésseyer plus tard ou contactez un administrateur.',
+	'votre_inscription_a_reussi_un_organisateur_va_vous_contacter' => 'Votre inscription s\'est bien passée.<br /> Vous serez contactés quand un nouveau GASAP se crée dans votre commune ou quand un place se libère.',
+	'votre_inscription_a_echoue_veuillez_reeseyer_plus_tard' => 'Votre inscription ne s\'est pas déroulée correctement.<br />Veuillez réessayer plus tard ou contactez un administrateur.',
 
 // V
 	'valider_gasap' => 'Valider le GASAP',

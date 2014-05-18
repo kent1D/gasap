@@ -2,32 +2,35 @@
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
-function formulaires_inscription_particulier_charger_dist(){
+include_spip('inc/actions');
+include_spip('inc/editer');
+include_spip('inc/autoriser');
+
+function formulaires_inscription_particulier_charger_dist($id_particulier='new', $retour='', $config_fonc='partculiers_edit_config', $row=array(), $hidden=''){
 	$valeurs = array();
-	$valeurs["new"] = "oui";
 	
-	(_request('nom')?$valeurs['nom'] = _request('nom'):$valeurs['nom'] =$valeurs['nom']);
-	(_request('prenom')?$valeurs['prenom'] = _request('prenom'):$valeurs['prenom'] =$valeurs['prenom']);
-	(_request('adresse')?$valeurs['adresse'] = _request('adresse'):$valeurs['adresse'] =$valeurs['adresse']);
-	(_request('code_postal')?$valeurs['code_postal'] = _request('code_postal'):$valeurs['code_postal'] =$valeurs['code_postal']);
-	(_request('ville')?$valeurs['ville'] = _request('ville'):$valeurs['ville'] =$valeurs['ville']);
-	(_request('commune')?$valeurs['commune'] = _request('commune'):$valeurs['commune'] =$valeurs['commune']);
-	(_request('telephone')?$valeurs['telephone'] = _request('telephone'):$valeurs['telephone'] =$valeurs['telephone']);
-	(_request('email')?$valeurs['email'] = _request('email'):$valeurs['email'] =$valeurs['email']);
-	(_request('composition_menage')?$valeurs['composition_menage'] = _request('composition_menage'):$valeurs['composition_menage'] =$valeurs['composition_menage']);
-	(_request('personne_de_contact')?$valeurs['personne_de_contact'] = _request('personne_de_contact'):$valeurs['personne_de_contact'] =$valeurs['personne_de_contact']);
-	(_request('lieu')?$valeurs['lieu'] = _request('lieu'):$valeurs['lieu'] =$valeurs['lieu']);
-	(_request('remarques')?$valeurs['remarques'] = _request('remarques'):$valeurs['remarques'] =$valeurs['remarques']);
+	$valeurs = formulaires_editer_objet_charger('particulier',$id_particulier,'','',$retour,$config_fonc,$row,$hidden);
 
 	return $valeurs;
 }
 
-function formulaires_inscription_particulier_verifier_dist(){
+// Choix par defaut des options de presentation
+function partculiers_edit_config($row)
+{
+	global $spip_lang;
+
+	$config = $GLOBALS['meta'];
+	$config['lignes'] = 8;
+	$config['langue'] = $spip_lang;
+	return $config;
+}
+
+function formulaires_inscription_particulier_verifier_dist($id_particulier='new', $retour='', $config_fonc='partculiers_edit_config', $row=array(), $hidden=''){
 
 	$erreurs = Array();
 	include_spip('inc/filtres');
 
-	foreach(array('email','nom','code_postal') as $obligatoire)
+	foreach(array('email','nom') as $obligatoire)
 		if (!_request($obligatoire)) $erreurs[$obligatoire] = 'Ce champ est obligatoire';
 	
 	if (_request('email') AND !email_valide(_request('email')))
@@ -47,72 +50,29 @@ function formulaires_inscription_particulier_verifier_dist(){
 	
 }
 
-function formulaires_inscription_particulier_traiter_dist(){
+function formulaires_inscription_particulier_traiter_dist($id_particulier='new', $retour='', $config_fonc='partculiers_edit_config', $row=array(), $hidden=''){
 	
-	include_spip("base/abstract_sql");
-	
-	$valeurs = Array();
-	
-	// On charge les champs qu'on a de toute facon besoin.
-	$new = "oui";
-	$valeurs['id_particulier'] = _request("id_particulier");
-	$valeurs['maj'] = date("Y-m-d G:i:s");
-	
-	
-	/* 
-	 * ici on viens charger les différents champs de l'particuliers
-	 * du genre :
-	 * $valeurs['titre'] = _request("titre");
-	 * $valeurs['texte'] = _request("texte");
-	 * $valeurs['zorglub'] = _request("zorglub");
-	 * ...
-	 * 
-	 * !Attention!:
-	 * On ne 'charge' ici que les element non systeme.
-	 * On entend par element systeme  les id_auteur du createur,
-	 * la date de creation et de modification de l'particulier, etc...
-	 * On ne charge ici que son titre, son texte, etc...
-	 * 
-	 * */
-	
-	$valeurs['nom'] = _request('nom');
-	$valeurs['prenom'] = _request('prenom');
-	$valeurs['adresse'] = _request('adresse');
-	$valeurs['code_postal'] = _request('code_postal');
-	$valeurs['ville'] = _request('ville');
-	$valeurs['commune'] = _request('commune');
-	$valeurs['telephone'] = _request('telephone');
-	$valeurs['email'] = _request('email');
-	$valeurs['composition_menage'] = _request('composition_menage');
-	$valeurs['personne_de_contact'] = _request('personne_de_contact');
-	$valeurs['remarques'] = _request('remarques');
-	$valeurs['statut'] = "en_attente";
-	
-	$valeurs['id_particulier'] = sql_insertq("spip_particuliers",$valeurs);
+	$res = formulaires_editer_objet_traiter('particulier',$id_particulier,'','',$retour,$config_fonc,$row,$hidden);
 	
 	//$liaison = sql_insertq("spip_gasaps_particuliers",Array("id_particulier = ".$valeurs['id_particulier'],"id_gasap = "._request('id_particulier')));
 	
-	if ($valeurs['id_particulier'] ){
-		$valeurs['message_ok'] = _T('gasap:votre_inscription_a_reussi_un_organisateur_vas_vous_contacter');
+	if (intval($res['id_particulier']) > 0){
+		$valeurs['message_ok'] = _T('gasap:votre_inscription_a_reussi_un_organisateur_va_vous_contacter');
 		$envoyer_mail = charger_fonction('envoyer_mail', 'inc');
 		$corps = "Inscription d'un particulier.
 
 Coordonnee:
 ------------
-nom: ".$valeurs['nom']."
-adresse: ".$valeurs['adresse']."
-numero: ".$valeurs['numero']."
-code_postal: ".$valeurs['code_postal']."
-ville: ".$valeurs['ville']."
-pays: ".$valeurs['pays']."
-Téléphone: ".$valeurs['telephone']."
-Fax : ".$valeurs['fax']."
-Gsm : ".$valeurs['gsm']."
-E-Mail: ".$valeurs['email']."
+Nom : "._request('nom')."
+Téléphone : "._request('telephone')."
+Fax : "._request('fax')."
+Gsm : "._request('gsm')."
+E-Mail: "._request('email')."
 
-Pour plus d'info, l'inscription est reprise dans le partie privée du site.
+Pour plus d'info, l'inscription est reprise dans la partie privée du site.
 ";
 		$envoyer_mail(lire_config('email_webmaster'), "Inscription d'un particulier GASAP", $corps);
+		$res['editable'] = false;
 	}else{
 		
 		// ca a foire, on remet new parce l'ajout n'a pas marché
