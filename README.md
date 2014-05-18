@@ -27,3 +27,8 @@ Au niveau de l'interface, on change le statut d'un GASAP via le formulaire de ch
 Les champs ```permanence``` des tables ```spip_gasap``` et ```spip_producteurs``` étaient nommés ```permanance``` avec un ```a```.
 
 C'est corrigé. 
+
+
+## Le formulaire de contact de GASAP
+
+Le formulaire de contact de GASAP doit avoir un paramètre ```id_gasap```

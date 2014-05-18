@@ -3,9 +3,7 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function formulaires_inscription_particulier_charger_dist(){
-	
-	$valeurs = Array();
-	
+	$valeurs = array();
 	$valeurs["new"] = "oui";
 	
 	(_request('nom')?$valeurs['nom'] = _request('nom'):$valeurs['nom'] =$valeurs['nom']);
@@ -17,13 +15,11 @@ function formulaires_inscription_particulier_charger_dist(){
 	(_request('telephone')?$valeurs['telephone'] = _request('telephone'):$valeurs['telephone'] =$valeurs['telephone']);
 	(_request('email')?$valeurs['email'] = _request('email'):$valeurs['email'] =$valeurs['email']);
 	(_request('composition_menage')?$valeurs['composition_menage'] = _request('composition_menage'):$valeurs['composition_menage'] =$valeurs['composition_menage']);
-	(_request('personne_de_contacte')?$valeurs['personne_de_contacte'] = _request('personne_de_contacte'):$valeurs['personne_de_contacte'] =$valeurs['personne_de_contacte']);
+	(_request('personne_de_contact')?$valeurs['personne_de_contact'] = _request('personne_de_contact'):$valeurs['personne_de_contact'] =$valeurs['personne_de_contact']);
 	(_request('lieu')?$valeurs['lieu'] = _request('lieu'):$valeurs['lieu'] =$valeurs['lieu']);
 	(_request('remarques')?$valeurs['remarques'] = _request('remarques'):$valeurs['remarques'] =$valeurs['remarques']);
-	
-	
+
 	return $valeurs;
-	
 }
 
 function formulaires_inscription_particulier_verifier_dist(){
@@ -36,10 +32,9 @@ function formulaires_inscription_particulier_verifier_dist(){
 	
 	if (_request('email') AND !email_valide(_request('email')))
 		$erreurs['email'] = _T('gasap:ce_mail_n_est_pas_valide');
-		
+
 	if (strlen(_request('bfg_god_mode')) > 0){
 		$erreurs['bfg_god_mode'] = "Nikouuuuuz !!";
-		
 	}
 	
 	if (count($erreurs)) {
@@ -89,7 +84,7 @@ function formulaires_inscription_particulier_traiter_dist(){
 	$valeurs['telephone'] = _request('telephone');
 	$valeurs['email'] = _request('email');
 	$valeurs['composition_menage'] = _request('composition_menage');
-	$valeurs['personne_de_contacte'] = _request('personne_de_contacte');
+	$valeurs['personne_de_contact'] = _request('personne_de_contact');
 	$valeurs['remarques'] = _request('remarques');
 	$valeurs['statut'] = "en_attente";
 	
