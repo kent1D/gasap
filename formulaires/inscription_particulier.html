@@ -25,16 +25,16 @@
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{prenom})</span>]
 								<input type='text' class='text' name='prenom' id='champ_prenom' value="[(#ENV**{prenom})]" />
 							</li>
+							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
+								<label for="champ_code_postal"><:gasap:titre_cadre_code_postal:>*</label>
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]
+								<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
+							</li>
 							[(#REM)
 							<li class="editer editer_adresse obligatoire[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
 								<label for="champ_adresse"><:gasap:titre_cadre_adresse:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{adresse})</span>]
 								<input type='text' class='text' name='adresse' id='champ_adresse' value="[(#ENV**{adresse})]" />
-							</li>
-							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
-								<label for="champ_code_postal"><:gasap:titre_cadre_code_postal:>*</label>
-								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]
-								<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
 							</li>
 							<li class="editer editer_ville obligatoire[(#ENV**{erreurs}|table_valeur{ville}|oui)erreur]">
 								<label for="champ_ville"><:gasap:titre_cadre_ville:></label>
@@ -63,23 +63,25 @@
 					<fieldset>
 						<h3 class="legend"><:gasap:informations_complementaires:></h3>
 						<ul>
+							<li class="editer editer_quartier [(#ENV**{erreurs}|table_valeur{quartier}|oui)erreur]">
+								<label for="champ_quartier"><:gasap:explication_quartier:></label>
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{quartier})</span>]
+								<input type='text' class='text' name='quartier' id='champ_quartier' value="[(#ENV**{composition_menage})]" />
+							</li>
 							<li class="editer editer_composition_menage[(#ENV**{erreurs}|table_valeur{composition_menage}|oui)erreur]">
-								<label for="champ_composition_menage"><:gasap:titre_cadre_composition_menage:></label>
+								<label for="champ_composition_menage"><:gasap:entree_composition_menage:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{composition_menage})</span>]
-								<div>
-									<span class='explication'><:gasap:entree_composition_menage:> &nbsp; &nbsp; </span>
-									<input type='text' class='text' name='composition_menage' id='champ_composition_menage' value="[(#ENV**{composition_menage})]" />
-								</div>
+								<input type='text' class='text' name='composition_menage' id='champ_composition_menage' value="[(#ENV**{composition_menage})]" />
 							</li>
 							<li class="editer editer_personne_de_contact[(#ENV**{erreurs}|table_valeur{personne_de_contact}|oui)erreur]">
 								<label><:gasap:titre_cadre_personne_de_contact:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{personne_de_contact})</span>]
+								<span class='explication'><:gasap:entree_personne_de_contact:> &nbsp; &nbsp; </span>
 								<div class="choix">
-									<span class='explication'><:gasap:entree_personne_de_contact:> &nbsp; &nbsp; </span>
-									<input type='radio' class="radio" name='personne_de_contact' value='0' id='champ_syndication_0'[ (#ENV{personne_de_contact}|=={0}|?{' ',''})checked="checked"] />
-									<label for='champ_syndication_0'><:gasap:non:></label>
-									<input type='radio' class="radio" name='personne_de_contact' value='1' id='champ_syndication_1'[ (#ENV{personne_de_contact}|=={1}|?{' ',''})checked="checked"] />
-									<label for='champ_syndication_1'><:gasap:oui:></label>
+									<input type='radio' class="radio" name='personne_de_contact' value='0' id='champ_personne_de_contact_0'[ (#ENV{personne_de_contact}|=={0}|ou{#ENV{personne_de_contact}|non}|oui)checked="checked"] />
+									<label for='champ_personne_de_contact_0'><:gasap:non:></label>
+									<input type='radio' class="radio" name='personne_de_contact' value='1' id='champ_personne_de_contact_1'[ (#ENV{personne_de_contact}|=={1}|oui)checked="checked"] />
+									<label for='champ_personne_de_contact_1'><:gasap:oui:></label>
 								</div>
 							</li>
 							<li class="editer editer_lieu obligatoire[(#ENV**{erreurs}|table_valeur{lieu}|oui)erreur]">

@@ -27,10 +27,10 @@ function partculiers_edit_config($row)
 
 function formulaires_inscription_particulier_verifier_dist($id_particulier='new', $retour='', $config_fonc='partculiers_edit_config', $row=array(), $hidden=''){
 
-	$erreurs = Array();
+	$erreurs = array();
 	include_spip('inc/filtres');
 
-	foreach(array('email','nom') as $obligatoire)
+	foreach(array('email','nom','code_postal') as $obligatoire)
 		if (!_request($obligatoire)) $erreurs[$obligatoire] = 'Ce champ est obligatoire';
 	
 	if (_request('email') AND !email_valide(_request('email')))
@@ -40,9 +40,8 @@ function formulaires_inscription_particulier_verifier_dist($id_particulier='new'
 		$erreurs['bfg_god_mode'] = "Nikouuuuuz !!";
 	}
 	
-	if (count($erreurs)) {
-		$erreurs['message_erreur'] = "Une erreur est pr&eacute;sente dans votre saisie";
-	}
+	if (count($erreurs))
+		$erreurs['message_erreur'] = _T('gasap:erreur_saisie');
 	
 	// Ici on teste les different champs
 	
@@ -74,7 +73,6 @@ Pour plus d'info, l'inscription est reprise dans la partie privée du site.
 		$envoyer_mail(lire_config('email_webmaster'), "Inscription d'un particulier GASAP", $corps);
 		$res['editable'] = false;
 	}else{
-		
 		// ca a foire, on remet new parce l'ajout n'a pas marché
 		$valeurs["new"] = _request("new");
 		// on dis que ca n'a pas marché

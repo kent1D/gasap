@@ -46,10 +46,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'entree_nombre_menage' => 'Entrez ici le nombre de personne que compose votre ménage',
 	'entree_permanence' => 'Indiquez ici les permanences de votre groupe.',
 	'entree_personne_contact' => 'Voulez-vous &ecirc;tre la personne de contact?',
-	'entree_personne_de_contact' => 'Voulez-vous &ecirc;tre la personne de contact?',
+	'entree_personne_de_contact' => 'Voulez-vous être une personne de contact pour organiser la première réunion de création d\'un nouveau GASAP ?',
 	'entree_remarques' => 'Indiquez ici les éventuelles remarques concernant le groupe.',
+	'erreur_saisie' => 'Une erreur est pr&eacute;sente dans votre saisie',
 	'est_une_personne_de_contact' => 'Cette personne est une personne de contact.',
 	'etes_vous_sur_de_vouloir_supprimer_ce_gasap' => 'Etes-vous s&ucirc;r de vouloir supprimer ce GASAP ?',
+	'explication_quartier' => 'Dans quel quartier cherchez vous à intégrer un GASAP ?',
 
 // G
 	'g_a_s_a_p' => 'Groupes d\'achat solidaire de l\'agriculture paysane',
@@ -81,6 +83,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'informations_generales' => 'Informations générales',
 
 // L
+	'label_quartier' => 'Quartier',
 	'labellise_bio' => 'Labelisé bio',
 	'legende' => 'Légende',
 	'les_demandes_a_traiter' => 'Les demandes &agrave; traiter',
@@ -151,7 +154,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_cadre_pays' => 'Pays',
 	'titre_cadre_permanence' => 'Permanence',
 	'titre_cadre_personne_contact' => 'Personne de contact',
-	'titre_cadre_personne_de_contact' => 'Personne de contact',
+	'titre_cadre_personne_de_contact' => 'Personne dynamo pour création de nouveau GASAP',
 	'titre_cadre_prenom' => 'Prénom',
 	'titre_cadre_remarques' => 'Remarques',
 	'titre_cadre_stade' => 'Stade',
