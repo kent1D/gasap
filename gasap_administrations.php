@@ -29,6 +29,10 @@ function gasap_upgrade($nom_meta_base_version,$version_cible){
 	$maj['0.6.0'] = array(
 		array('gasap_changer_personne_contacte','')
 	);
+	// Ajout du champ quartier
+	$maj['0.7.0'] = array(
+		array('maj_tables',array('spip_particuliers'))
+	);
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }

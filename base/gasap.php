@@ -174,6 +174,7 @@ function gasap_declarer_tables_objets_sql($tables){
 			"telephone" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"email" => "TEXT DEFAULT '' NOT NULL",
 			"remarques"	=> "TEXT NOT NULL",
+			"quartier" => "TEXT DEFAULT '' NOT NULL",
 			"personne_de_contact"	=> "TEXT NOT NULL",
 			"composition_menage"	=> "int(1) NOT NULL",
 			"exporte"	=> "int(1) NOT NULL",
@@ -190,12 +191,13 @@ function gasap_declarer_tables_objets_sql($tables){
 			'telephone',
 			'email',
 			'remarques',
+			'quartier',
 			'personne_de_contact',
 			'composition_menage'
 		),
 		'rechercher_champs' => array(
 			'nom' => 8, 'prenom' => 5, 'adresse' => 3, 'code_postal' => 3, 'ville' => 5, 'commune' => 3,
-			'telephone' => 1, 'email' => 1, 'remarques' => 4, 'personne_de_contact' => 4, 'composition_menage' => 1
+			'telephone' => 1, 'email' => 1, 'remarques' => 4, 'quartier' => 4, 'personne_de_contact' => 4, 'composition_menage' => 1
 		),
 		'key' => array(
 			"PRIMARY KEY" => "id_particulier",
