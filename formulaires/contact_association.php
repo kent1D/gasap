@@ -23,6 +23,28 @@ function formulaires_contact_association_verifier_dist(){
 	if (_request('email') AND !email_valide(_request('email')))
 		$erreurs['email'] = _T('gasap:ce_mail_n_est_pas_valide');
 	
+	// si nospam est present on traite les spams
+	if (!isset($erreurs['texte']) && include_spip('inc/nospam')) {
+		include_spip('inc/texte');
+		$caracteres = compter_caracteres_utiles(_request('texte'));
+		// moins de 10 caracteres sans les liens = spam !
+		if ($caracteres < 10){
+			$erreurs['texte'] = _T('forum_attention_dix_caracteres');
+		}
+		
+		// on analyse le texte
+		$infos_texte = analyser_spams(_request('texte'));
+		if ($infos_texte['nombre_liens'] > 0) {
+			// si un lien a un titre de moins de 3 caracteres = spam !
+			if ($infos_texte['caracteres_texte_lien_min'] < 3) {
+				$erreurs['texte'] = _T('nospam:erreur_spam');
+			}
+			// si le texte contient plus de trois lien = spam !
+			if ($infos_texte['nombre_liens'] >= 3)
+				$erreurs['texte'] = _T('nospam:erreur_spam');
+		}
+	}
+
 	if (count($erreurs))
 		$erreurs['message_erreur'] = _T('gasap:votre_saisie_contient_des_erreurs');
 	

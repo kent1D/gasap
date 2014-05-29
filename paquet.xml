@@ -23,5 +23,6 @@
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/gasap.php" />
 
 	<necessite nom="facteur" />
+	<necessite nom="nospam" />
 	<menu nom="gasaps" titre="gasap:gasap" parent="menu_edition" icone="images/gasap-16.png" />
 </paquet>
