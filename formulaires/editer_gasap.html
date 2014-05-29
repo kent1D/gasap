@@ -12,36 +12,36 @@
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{nom})</span>]
 							<input type='text' class='text' name='nom' id='champ_nom' value="[(#ENV**{nom})]" />
 						</li>
-						<li class="editer editer_adresse obligatoire[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
+						#SAISIE{carte,geolocalisation,lat=#LAT,lon=#LNG,champ_lon=lng}
+						<li class="editer editer_adresse[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
 							<label for="champ_adresse"><:gasap:titre_cadre_adresse:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{adresse})</span>]
-							<input type='text' class='text' name='adresse' id='champ_adresse' value="[(#ENV**{adresse})]" />
+							<input type='text' class='text' name='adresse' id='champ_adresse' value="[(#ENV**{adresse})]" readonly="readonly" />
 						</li>
-						<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
+						<li class="editer editer_code_postal[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
 							<label for="champ_code_postal"><:gasap:titre_cadre_code_postal:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]
-							<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
+							<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" readonly="readonly" />
 						</li>
-						<li class="editer editer_ville obligatoire[(#ENV**{erreurs}|table_valeur{ville}|oui)erreur]">
+						<li class="editer editer_ville[(#ENV**{erreurs}|table_valeur{ville}|oui)erreur]">
 							<label for="champ_ville"><:gasap:titre_cadre_ville:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{ville})</span>]
-							<input type='text' class='text' name='ville' id='champ_ville' value="[(#ENV**{ville})]" />
+							<input type='text' class='text' name='ville' id='champ_ville' value="[(#ENV**{ville})]" readonly="readonly" />
 						</li>
-						<li class="editer editer_pays obligatoire[(#ENV**{erreurs}|table_valeur{pays}|oui)erreur]">
+						<li class="editer editer_pays[(#ENV**{erreurs}|table_valeur{pays}|oui)erreur]">
 							<label for="champ_pays"><:gasap:titre_cadre_pays:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{pays})</span>]
-							<input type='text' class='text' name='pays' id='champ_pays' value="[(#ENV**{pays})]" />
+							<input type='text' class='text' name='pays' id='champ_pays' value="[(#ENV**{pays})]" readonly="readonly" />
 						</li>
-						#SAISIE{carte,geolocalisation,lat=#LAT,lon=#LNG,champ_lon=lng}
-						<li class="editer editer_lat obligatoire[(#ENV**{erreurs}|table_valeur{lat}|oui)erreur]">
+						<li class="editer editer_lat[(#ENV**{erreurs}|table_valeur{lat}|oui)erreur]">
 							<label for="champ_lat"><:gis:lat:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{lat})</span>]
-							<input type='text' class='text' name='lat' id='champ_lat' value="[(#ENV**{lat})]" />
+							<input type='text' class='text' name='lat' id='champ_lat' value="[(#ENV**{lat})]" readonly="readonly" />
 						</li>
-						<li class="editer editer_lng obligatoire[(#ENV**{erreurs}|table_valeur{lng}|oui)erreur]">
+						<li class="editer editer_lng[(#ENV**{erreurs}|table_valeur{lng}|oui)erreur]">
 							<label for="champ_lng"><:gis:lon:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{lng})</span>]
-							<input type='text' class='text' name='lng' id='champ_lng' value="[(#ENV**{lng})]" />
+							<input type='text' class='text' name='lng' id='champ_lng' value="[(#ENV**{lng})]" readonly="readonly" />
 						</li>
 						<li class="editer editer_telephone obligatoire[(#ENV**{erreurs}|table_valeur{telephone}|oui)erreur]">
 							<label for="champ_telephone"><:gasap:titre_cadre_telephone:></label>
