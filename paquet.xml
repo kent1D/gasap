@@ -17,6 +17,7 @@
 	<licence>GNU/GLP</licence>
 
 	<pipeline nom="header_prive" inclure="gasap_pipelines.php" />
+	<pipeline nom="autoriser" inclure="gasap_autoriser.php" />
 	<pipeline nom="declarer_tables_objets_sql" inclure="base/gasap.php" />
 	<pipeline nom="declarer_tables_interfaces" inclure="base/gasap.php" />
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/gasap.php" />
