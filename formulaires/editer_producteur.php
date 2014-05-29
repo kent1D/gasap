@@ -36,7 +36,6 @@ function formulaires_editer_producteur_charger_dist(){
 	(_request('ville')?$valeurs['ville'] = _request('ville'):$valeurs['ville'] =$valeurs['ville']);
 	(_request('pays')?$valeurs['pays'] = _request('pays'):$valeurs['pays'] =$valeurs['pays']);
 	(_request('telephone')?$valeurs['telephone'] = _request('telephone'):$valeurs['telephone'] =$valeurs['telephone']);
-	(_request('fax')?$valeurs['fax'] = _request('fax'):$valeurs['fax'] =$valeurs['fax']);
 	(_request('gsm')?$valeurs['gsm'] = _request('gsm'):$valeurs['gsm'] =$valeurs['gsm']);
 	(_request('email')?$valeurs['email'] = _request('email'):$valeurs['email'] =$valeurs['email']);
 	(_request('permanence')?$valeurs['permanence'] = _request('permanence'):$valeurs['permanence'] =$valeurs['permanence']);
@@ -104,7 +103,6 @@ function formulaires_editer_producteur_traiter_dist(){
 	$valeurs['ville'] = _request('ville');
 	$valeurs['pays'] = _request('pays');
 	$valeurs['telephone'] = _request('telephone');
-	$valeurs['fax'] = _request('fax');
 	$valeurs['gsm'] = _request('gsm');
 	$valeurs['email'] = _request('email');
 	$valeurs['permanence'] = _request('permanence');

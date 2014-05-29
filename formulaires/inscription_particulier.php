@@ -64,7 +64,6 @@ Coordonnee:
 ------------
 Nom : "._request('nom')."
 Téléphone : "._request('telephone')."
-Fax : "._request('fax')."
 Gsm : "._request('gsm')."
 E-Mail: "._request('email')."
 

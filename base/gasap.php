@@ -41,7 +41,6 @@ function gasap_declarer_tables_objets_sql($tables){
 			"ville" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"pays" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"telephone" => "VARCHAR(255) DEFAULT '' NOT NULL",
-			"fax" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"gsm" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"permanence" => "TEXT DEFAULT '' NOT NULL",
 			"remarques" => "TEXT DEFAULT '' NOT NULL",
@@ -55,12 +54,12 @@ function gasap_declarer_tables_objets_sql($tables){
 		),
 		'champs_editables' => array(
 				'nom','adresse','code_postal','ville','pays',
-				'telephone','fax','gsm','permanence','remarques','email',
+				'telephone','gsm','permanence','remarques','email',
 				'nombre_place','complet','lat','lng'
 		),
 		'rechercher_champs' => array(
 				'nom' => 8, 'adresse' => 3, 'code_postal' => 3, 'ville' => 5, 'pays' => 3,
-				'telephone' => 1, 'fax' => 1, 'gsm' => 1, 'permanence'=> 1, 'remarques' => 4, 'email' => 1
+				'telephone' => 1, 'gsm' => 1, 'permanence'=> 1, 'remarques' => 4, 'email' => 1
 		),
 		'key' => array(
 			"PRIMARY KEY"	=> "id_gasap",
@@ -114,7 +113,6 @@ function gasap_declarer_tables_objets_sql($tables){
 			"ville" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"pays" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"telephone" => "VARCHAR(255) DEFAULT '' NOT NULL",
-			"fax" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"gsm" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"permanence" => "TEXT DEFAULT '' NOT NULL",
 			"remarques" => "TEXT DEFAULT '' NOT NULL",
@@ -134,13 +132,13 @@ function gasap_declarer_tables_objets_sql($tables){
 		),
 		'champs_editables' => array(
 				'nom','prenom','adresse','code_postal','ville','pays',
-				'telephone','fax','gsm','permanence','remarques','email',
+				'telephone','gsm','permanence','remarques','email',
 				'nom_ferme','label_bio','biodynamie','type_culture','type_elevage','transformation',
 				'taille_ferme','distance_bruxelles','stade','commentaires'
 		),
 		'rechercher_champs' => array(
 				'nom' => 8, 'prenom' => 5, 'adresse' => 3, 'code_postal' => 3, 'ville' => 5, 'pays' => 3,
-				'telephone' => 1, 'fax' => 1, 'gsm' => 1, 'permanence'=> 1, 'remarques' => 4, 'email' => 1,
+				'telephone' => 1, 'gsm' => 1, 'permanence'=> 1, 'remarques' => 4, 'email' => 1,
 				'nom_ferme' => 8, 'label_bio' => 4, "biodynamie" => 1,'type_culture'=> 3, 'type_elevage' => 3, 'transformation' => 2,
 				'taille_ferme' => 1, 'stade' => 1, 'commentaires' => 3
 		),

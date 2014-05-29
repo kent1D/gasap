@@ -62,7 +62,6 @@ Code_postal: "._request('code_postal')."
 Ville : "._request('ville')."
 Pays : "._request('pays')."
 Téléphone : "._request('telephone')."
-Fax : "._request('fax')."
 Gsm : "._request('gsm')."
 E-Mail : "._request('email')."
 

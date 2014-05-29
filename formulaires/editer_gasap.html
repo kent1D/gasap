@@ -48,11 +48,6 @@
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{telephone})</span>]
 							<input type='text' class='text' name='telephone' id='champ_telephone' value="[(#ENV**{telephone})]" />
 						</li>
-						<li class="editer editer_fax obligatoire[(#ENV**{erreurs}|table_valeur{fax}|oui)erreur]">
-							<label for="champ_fax"><:gasap:titre_cadre_fax:></label>
-							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{fax})</span>]
-							<input type='text' class='text' name='fax' id='champ_fax' value="[(#ENV**{fax})]" />
-						</li>
 						<li class="editer editer_gsm obligatoire[(#ENV**{erreurs}|table_valeur{gsm}|oui)erreur]">
 							<label for="champ_gsm"><:gasap:titre_cadre_gsm:></label>
 							[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{gsm})</span>]
