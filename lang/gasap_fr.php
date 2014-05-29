@@ -24,6 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 // B
 	'biodynamie' => 'Biodynamie',
 	'bouton_exporter_particuliers' => 'Exporter les particuliers',
+	'bouton_purger_particuliers' => 'Purger les particuliers',
 
 // C
 	'ce_mail_n_est_pas_valide' => 'Ce mail n\'est pas valide',
@@ -90,6 +91,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'les_demandes_gasap_a_traiter' => 'Les demandes GASAP a traiter',
 
 // M
+	'message_confirmation_purge' => 'Avant de purger, êtes vous sûr d\'avoir exporté les dernières inscriptions ?',
 	'message_contact_asso_adresse' => 'E-mail : ',
 	'message_contact_asso_message' => 'Message : ',
 	'message_contact_asso_nom' => 'Nom : ',
@@ -162,11 +164,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_cadre_type_culture' => 'Type de culture',
 	'titre_cadre_type_elevage' => 'Type d\'élevge',
 	'titre_cadre_ville' => 'Ville',
-	'titre_exports' => 'Exports',
 	'titre_gasap_numero' => 'GASAP numéro',
 	'titre_gasap' => 'GASAP',
 	'titre_gasaps' => 'Les GASAPs',
 	'titre_logo_gasap' => 'Logo du GASAP',
+	'titre_outils' => 'Actions',
 	'transformation' => 'Transformation',
 	'type_culture' => 'Type de culture',
 	'type_elevage' => 'Type d\'elevage',
