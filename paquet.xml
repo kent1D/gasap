@@ -23,5 +23,4 @@
 	<pipeline nom="declarer_tables_auxiliaires" inclure="base/gasap.php" />
 
 	<menu nom="gasaps" titre="gasap:gasap" parent="menu_edition" icone="images/gasap-16.png" />
-	<menu nom="particuliers" titre="particulier:particuliers" parent="menu_edition" icone="images/gasap-16.png" />
 </paquet>
