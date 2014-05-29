@@ -22,7 +22,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<BOUCLE_liste_art(GASAPS){id_gasap?}{where?}{statut?}{recherche?}{tri #ENV{par,code_postal},#GET{defaut_tri}}{par nom}{pagination #ENV{nb,10}}>
+	<BOUCLE_liste_art(GASAPS){id_gasap?}{where?}{statut IN #ENV{statuts,#LISTE{construction,libre,complet}}}{recherche?}{tri #ENV{par,code_postal},#GET{defaut_tri}}{par nom}{pagination #ENV{nb,10}}>
 		[(#LANG|changer_typo)]
 		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
 			<td class='statut'>[(#STATUT|puce_statut{gasap,#ID_GASAP,#ID_RUBRIQUE})]</td>
