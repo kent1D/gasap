@@ -4,4 +4,3 @@
 "personne_de_contact";"prenom";"nom";"adresse";"code_postal";"commune";"telephone";"email";"quartier","composition_menage";"date";"remarques"
 <BOUCLE_Exp(PARTICULIERS){exporte=0}>"[(#PERSONNE_DE_CONTACTE|?{non,oui})]";"#PRENOM";"#NOM";"#ADRESSE";"#CODE_POSTAL";"#COMMUNE";"#TELEPHONE";"[(#EMAIL**)]";"#QUARTIER";"#COMPOSITION_MENAGE";"[(#MAJ|jour)]/[(#MAJ|mois)]/[(#MAJ|annee)]";"#REMARQUES"
 </BOUCLE_Exp>
-

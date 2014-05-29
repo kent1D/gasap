@@ -11,7 +11,7 @@
 #ANCRE_PAGINATION
 <div class="liste-objets particuliers">
 <table class='spip liste'>
-[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{particulier:info_1_particulier,particulier:info_nb_particuliers}})</strong></caption>]
+[<caption><strong class="caption">(#ENV*{titre,[(#ENV{exporte,0}|=={0}|?{[(#GRAND_TOTAL|singulier_ou_pluriel{particulier:info_1_particulier_non_exporte,particulier:info_nb_particuliers_non_exportes})],[(#GRAND_TOTAL|singulier_ou_pluriel{particulier:info_1_particulier,particulier:info_nb_particuliers})]})]})</strong></caption>]
 	<thead>
 		<tr class='first_row'>
 			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th>
@@ -23,7 +23,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<BOUCLE_liste_art(PARTICULIERS){id_particulier?}{where?}{statut?}{recherche?}{tri #ENV{par,id_particulier},#GET{defaut_tri}}{par nom,prenom}{pagination #ENV{nb,10}}>
+	<BOUCLE_liste_art(PARTICULIERS){id_particulier?}{exporte IN #ENV{exporte,0}}{where?}{statut?}{recherche?}{tri #ENV{par,id_particulier},#GET{defaut_tri}}{par nom,prenom}{pagination #ENV{nb,10}}>
 		[(#LANG|changer_typo)]
 		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
 			<td class='statut'>[(#STATUT|puce_statut{particulier,#ID_PARTICULIER,#ID_RUBRIQUE})]</td>

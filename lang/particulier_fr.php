@@ -22,7 +22,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'icone_creer_particulier' => 'Ajouter un particulier',
 	'icone_modifier_particulier' => 'Modifier le particulier',
 	'info_1_particulier' => '1 particulier',
+	'info_1_particulier_non_exporte' => '1 particulier non purgé',
 	'info_nb_particuliers' => '@nb@ particuliers',
+	'info_nb_particuliers_non_exportes' => '@nb@ particuliers non purgés',
 
 // M
 
