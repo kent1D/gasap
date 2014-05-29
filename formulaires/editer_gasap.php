@@ -49,10 +49,8 @@ function formulaires_editer_gasap_traiter_dist($id_gasap='new', $retour='', $con
 		}
 	}
 
-	/**
-	 * TODO : réimplémenter le géocodeur
-	 */
-	return formulaires_editer_objet_traiter('gasap',$id_gasap,'','',$retour,$config_fonc,$row,$hidden);
+	$res = formulaires_editer_objet_traiter('gasap',$id_gasap,'','',$retour,$config_fonc,$row,$hidden);
+	return $res;
 }
 
 ?>
