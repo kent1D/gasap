@@ -31,48 +31,53 @@ function formulaires_contact_association_verifier_dist(){
 
 function formulaires_contact_association_traiter_dist(){
 	include_spip("base/abstract_sql");
-	$valeurs = array();
+	$valeurs = $corps = array();
 	
 	foreach(array('nom','email','texte','id_contact') as $champ){
 		$valeurs[$champ] = _request($champ);
 	}
 
-	$corps = _T('gasap:message_contact_asso_intro') . "\n" .
+	$sujet = _T('gasap:message_contact_asso_sujet');
+	
+	$corps['texte'] = _T('gasap:message_contact_asso_intro') . "\n" .
 _T('gasap:message_contact_asso_nom') . $valeurs['nom'] . "\n" .
 _T('gasap:message_contact_asso_adresse') . $valeurs['email'] . "\n" .
 _T('gasap:message_contact_asso_message') . $valeurs['texte'];
-
-	$reply = $valeurs['email'];
 	
 	switch ($valeurs['id_contact']){
 		case '1':
-			$email = "coordinateur@gasap.be";
+			$destinataires = "coordinateur@gasap.be";
 		break;
 		
 		case '2':
-			$email = "noyau@gasap.be";
+			$destinataires = "noyau@gasap.be";
 		break;
 
 		case '3':
-			$email = "aide-creation@gasap.be";
+			$destinataires = "aide-creation@gasap.be";
 		break;
 		
 		case '4':
-			$email = "comm@gasap.be";
+			$destinataires = "comm@gasap.be";
 		break;
 
 		case '5':
-			$email = "producteur@gasap.be";
+			$destinataires = "producteur@gasap.be";
 		break;
 		
 		default:
-			$email = lire_config('email_webmaster');
+			$destinataires = lire_config('email_webmaster');
 		break;
-		
 	}
+	
+	$corps['nom_envoyeur'] = $valeurs['nom'];
+	$corps['from'] = $reply = $valeurs['email'];
+	$corps['repondre_a'] = $reply;
+	$corps['bcc'] = array('postmaster@gasap.be');
+
 	$envoyer_mail = charger_fonction('envoyer_mail', 'inc');
-	$envoyer_mail($email, _T('gasap:message_contact_asso_sujet'), $corps, $from = "$reply");
-	$valeurs['message_ok'] = _T('gasap:votre_message_a_bien_ete_envoye_un_responsable_vas_vous_repondre');
+	$envoyer_mail($destinataires, $sujet, $corps);
+	$valeurs['message_ok'] = _T('gasap:votre_message_a_bien_ete_envoye_un_responsable_va_vous_repondre');
 	return $valeurs;
 	
 }

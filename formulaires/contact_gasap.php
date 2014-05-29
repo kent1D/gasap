@@ -44,22 +44,27 @@ function formulaires_contact_gasap_verifier_dist($id_gasap){
 }
 
 function formulaires_contact_gasap_traiter_dist($id_gasap){
-	$valeurs = array();
+	$valeurs = $corps = array();
 	
 	foreach(array('nom','email','texte') as $champ){
 		$valeurs[$champ] = _request($champ);
 	}
 	
-	$corps = _T('gasap:message_contact_asso_intro') . "\n" .
+	$corps['texte'] = _T('gasap:message_contact_asso_intro') . "\n" .
 _T('gasap:message_contact_asso_nom') . $valeurs['nom'] . "\n" .
 _T('gasap:message_contact_asso_adresse') . $valeurs['email'] . "\n" .
 _T('gasap:message_contact_asso_message') . $valeurs['texte'];
 	
-	$email = sql_getfetsel("email","spip_gasaps","id_gasap = ".intval($id_gasap));
+	$destinataire = sql_getfetsel("email","spip_gasaps","id_gasap = ".intval($id_gasap));
+	$sujet = _T('gasap:message_contact_asso_sujet');
+	$corps['nom_envoyeur'] = $valeurs['nom'];
+	$corps['from'] = $reply = $valeurs['email'];
+	$corps['repondre_a'] = $reply;
+	$corps['bcc'] = array('postmaster@gasap.be');
 
 	$envoyer_mail = charger_fonction('envoyer_mail', 'inc');
-	$envoyer_mail($email, _T('gasap:message_contact_asso_sujet'), $corps, $from = "$reply");
-	$valeurs['message_ok'] = _T('gasap:votre_message_a_bien_ete_envoye_un_responsable_vas_vous_repondre');
+	$envoyer_mail($destinataire,$sujet, $corps);
+	$valeurs['message_ok'] = _T('gasap:votre_message_a_bien_ete_envoye_un_responsable_va_vous_repondre');
 	return $valeurs;
 	
 }

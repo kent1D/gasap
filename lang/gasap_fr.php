@@ -27,7 +27,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_purger_particuliers' => 'Purger les particuliers',
 
 // C
-	'ce_mail_n_est_pas_valide' => 'Ce mail n\'est pas valide',
+	'ce_mail_n_est_pas_valide' => 'Cette adresse mail n\'est pas valide',
 	'commentaires' => 'Commentaires',
 	'composition_du_menage' => 'Composition du ménage',
 	'contacter_le_gasap' => 'Contacter le GASAP',
@@ -182,7 +182,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'valider_particulier' => 'Valider le particulier',
 	'voir_le_gasap' => 'Voir les détails',
 	'votre_message' => 'Votre message',
-	'votre_message_a_bien_ete_envoye_un_responsable_vas_vous_repondre'=>'Votre message a bien été envoyé.',
+	'votre_message_a_bien_ete_envoye_un_responsable_va_vous_repondre'=>'Votre message a bien été envoyé.',
 	'votre_saisie_contient_des_erreurs' => 'Votre saisie contient des erreurs',
 	'voulez_vous_vraiment_supprimer_ce_particulier' => 'Voulez-vous vraiment supprimer ce particulier ?'
 
