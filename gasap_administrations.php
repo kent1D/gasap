@@ -33,6 +33,9 @@ function gasap_upgrade($nom_meta_base_version,$version_cible){
 	$maj['0.7.0'] = array(
 		array('maj_tables',array('spip_particuliers'))
 	);
+	$maj['0.8.0'] = array(
+		array('gasap_concatener_numero','')
+	);
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }
@@ -100,5 +103,21 @@ function gasap_changer_type_evelvage(){
 
 function gasap_changer_personne_contacte(){
 	sql_alter("TABLE spip_particuliers CHANGE `personne_de_contacte` `personne_de_contacte` TEXT NOT NULL DEFAULT ''");
+}
+
+function gasap_concatener_numero(){
+	$numeros = sql_allfetsel('id_gasap, numero, adresse','spip_gasaps','numero != ""');
+	foreach($numeros as $numero){
+		$update = array();
+		if(!preg_match('/'.$numero['numero'].'/Uims',$numero['adresse'])){
+			$update['adresse'] = trim($numero['adresse']).', '.$numero['numero'];
+		}
+		$update['numero'] = '';
+		sql_updateq('spip_gasaps',$update,'id_gasap='.intval($numero['id_gasap']));
+		if (time() >= _TIME_OUT)
+			return;
+	}
+	
+	sql_alter("TABLE spip_gasaps DROP `numero`");
 }
 ?>

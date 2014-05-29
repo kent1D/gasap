@@ -26,11 +26,6 @@
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{adresse})</span>]
 								<input type='text' class='text' name='adresse' id='champ_adresse' value="[(#ENV**{adresse})]" />
 							</li>
-							<li class="editer editer_numero obligatoire[(#ENV**{erreurs}|table_valeur{numero}|oui)erreur]">
-								<label for="numero"><:gasap:titre_cadre_numero:></label>
-								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{numero})</span>]
-								<input type='text' class='text' name='numero' id='champ_numero' value="[(#ENV**{numero})]" />
-							</li>
 							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
 								<label for="code_postal"><:gasap:titre_cadre_code_postal:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]

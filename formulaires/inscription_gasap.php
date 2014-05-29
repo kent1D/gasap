@@ -37,7 +37,7 @@ function formulaires_inscription_gasap_traiter_dist($id_gasap='new', $retour='',
 	 */
 	if(!_request('lat') OR !_request('lng')){
 		include_spip('inc/distant');
-		$adresse = _request('numero').' '._request('adresse').', '._request('ville');
+		$adresse = _request('adresse').', '._request('ville');
 		$url = 'http://nominatim.openstreetmap.org/search';
 		$url = parametre_url(parametre_url(parametre_url(parametre_url($url,'format','json','&'),'limit',1,'&'),'addressdetails',1,'&'),'q',$adresse,'&');
 		$geocoder = json_decode(recuperer_page($url),true);
@@ -58,7 +58,6 @@ Coordonnee:
 ------------
 Nom : "._request('nom')."
 Adresse : "._request('adresse')."
-Numero : "._request('numero')."
 Code_postal: "._request('code_postal')."
 Ville : "._request('ville')."
 Pays : "._request('pays')."

@@ -32,7 +32,6 @@ function formulaires_editer_producteur_charger_dist(){
 	(_request('nom')?$valeurs['nom'] = _request('nom'):$valeurs['nom'] =$valeurs['nom']);
 	(_request('prenom')?$valeurs['prenom'] = _request('prenom'):$valeurs['prenom'] =$valeurs['prenom']);
 	(_request('adresse')?$valeurs['adresse'] = _request('adresse'):$valeurs['adresse'] =$valeurs['adresse']);
-	(_request('numero')?$valeurs['numero'] = _request('numero'):$valeurs['numero'] =$valeurs['numero']);
 	(_request('code_postal')?$valeurs['code_postal'] = _request('code_postal'):$valeurs['code_postal'] =$valeurs['code_postal']);
 	(_request('ville')?$valeurs['ville'] = _request('ville'):$valeurs['ville'] =$valeurs['ville']);
 	(_request('pays')?$valeurs['pays'] = _request('pays'):$valeurs['pays'] =$valeurs['pays']);
@@ -101,7 +100,6 @@ function formulaires_editer_producteur_traiter_dist(){
 	
 	$valeurs['nom'] = _request('nom');
 	$valeurs['adresse'] = _request('adresse');
-	$valeurs['numero'] = _request('numero');
 	$valeurs['code_postal'] = _request('code_postal');
 	$valeurs['ville'] = _request('ville');
 	$valeurs['pays'] = _request('pays');

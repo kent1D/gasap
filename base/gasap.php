@@ -37,7 +37,6 @@ function gasap_declarer_tables_objets_sql($tables){
 			"id_gasap"	=> "bigint(21) NOT NULL",
 			"nom" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"adresse" => "VARCHAR(255) DEFAULT '' NOT NULL",
-			"numero" => "VARCHAR(20) DEFAULT '' NOT NULL",
 			"code_postal" => "VARCHAR(20) DEFAULT '' NOT NULL",
 			"ville" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"pays" => "VARCHAR(255) DEFAULT '' NOT NULL",
@@ -55,7 +54,7 @@ function gasap_declarer_tables_objets_sql($tables){
 			"statut" => "VARCHAR(15) DEFAULT 'construction' NOT NULL"
 		),
 		'champs_editables' => array(
-				'nom','adresse','numero','code_postal','ville','pays',
+				'nom','adresse','code_postal','ville','pays',
 				'telephone','fax','gsm','permanence','remarques','email',
 				'nombre_place','complet','lat','lng'
 		),
@@ -111,7 +110,6 @@ function gasap_declarer_tables_objets_sql($tables){
 			"nom" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"prenom" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"adresse" => "VARCHAR(255) DEFAULT '' NOT NULL",
-			"numero" => "VARCHAR(20) DEFAULT '' NOT NULL",
 			"code_postal" => "VARCHAR(20) DEFAULT '' NOT NULL",
 			"ville" => "VARCHAR(255) DEFAULT '' NOT NULL",
 			"pays" => "VARCHAR(255) DEFAULT '' NOT NULL",
@@ -135,7 +133,7 @@ function gasap_declarer_tables_objets_sql($tables){
 			"statut" => "VARCHAR(10) DEFAULT '0' NOT NULL"
 		),
 		'champs_editables' => array(
-				'nom','prenom','adresse','numero','code_postal','ville','pays',
+				'nom','prenom','adresse','code_postal','ville','pays',
 				'telephone','fax','gsm','permanence','remarques','email',
 				'nom_ferme','label_bio','biodynamie','type_culture','type_elevage','transformation',
 				'taille_ferme','distance_bruxelles','stade','commentaires'
