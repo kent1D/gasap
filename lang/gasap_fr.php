@@ -19,7 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'ajouter_un_gasap' => 'Ajouter un GASAP',
 	'ajouter_un_particulier' => 'Ajouter un particulier',
 	'ajouter_un_producteur' => 'Ajouter un producteur',
-	'aucune_inscription_a_traiter' => 'Aucune inscription &agrave; traiter',
+	'aucune_inscription_a_traiter' => 'Aucune inscription à traiter',
 
 // B
 	'biodynamie' => 'Biodynamie',
@@ -87,7 +87,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_quartier' => 'Quartier',
 	'labellise_bio' => 'Labelisé bio',
 	'legende' => 'Légende',
-	'les_demandes_a_traiter' => 'Les demandes &agrave; traiter',
+	'les_demandes_a_traiter' => 'Les demandes à traiter',
 	'les_demandes_gasap_a_traiter' => 'Les demandes GASAP a traiter',
 
 // M
@@ -95,9 +95,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_contact_asso_adresse' => 'E-mail : ',
 	'message_contact_asso_message' => 'Message : ',
 	'message_contact_asso_nom' => 'Nom : ',
-	'message_contact_asso_intro' => 'Ce message &agrave; été envoyé via le formulaire de contact sur le site www.gasap.be.',
+	'message_contact_asso_intro' => 'Ce message à été envoyé via le formulaire de contact sur le site www.gasap.be.',
 	'message_contact_asso_sujet' => 'Envoi d\'un message via le site gasap.be',
-	'mise_a_jour_reussie' => 'Mise &agrave; jour réussie',
+	'message_envoye_depuis' => 'Message envoyé depuis la page : @url@',
+	'mise_a_jour_reussie' => 'Mise à jour réussie',
 
 // P
 	'participez' => 'Participer',
@@ -121,7 +122,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'stade' => 'Stade',
 	'stade_change' => 'changer le stade',
 	'texte_statut_construction' => 'en construction',
-	'statut_en_attente' => '&agrave; valider',
+	'statut_en_attente' => 'à valider',
 	'texte_statut_complet' => 'complet',
 	'texte_statut_libre' => 'places libres',
 	'supprimer_gasap' => 'Supprimer le GASAP',

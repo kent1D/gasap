@@ -6,6 +6,7 @@
 		<div>
 			[(#ACTION_FORMULAIRE{#ENV{action}})]
 			[<input type="hidden" name="id_gasap" value="(#ENV{id_gasap})" />]
+			[<input type="hidden" name="url_page" value="(#ENV{url_page})" />]
 			<fieldset>
 				<ul>
 					<li class="editer editer_nom obligatoire[(#ENV**{erreurs}|table_valeur{nom}|oui)erreur]">
