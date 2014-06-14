@@ -25,11 +25,6 @@
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{prenom})</span>]
 								<input type='text' class='text' name='prenom' id='champ_prenom' value="[(#ENV**{prenom})]" />
 							</li>
-							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
-								<label for="champ_code_postal"><:gasap:titre_cadre_code_postal:>*</label>
-								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]
-								<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
-							</li>
 							[(#REM)
 							<li class="editer editer_adresse obligatoire[(#ENV**{erreurs}|table_valeur{adresse}|oui)erreur]">
 								<label for="champ_adresse"><:gasap:titre_cadre_adresse:></label>
@@ -67,6 +62,11 @@
 								<label for="champ_quartier"><:gasap:explication_quartier:></label>
 								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{quartier})</span>]
 								<input type='text' class='text' name='quartier' id='champ_quartier' value="[(#ENV**{composition_menage})]" />
+							</li>
+							<li class="editer editer_code_postal obligatoire[(#ENV**{erreurs}|table_valeur{code_postal}|oui)erreur]">
+								<label for="champ_code_postal"><:gasap:titre_cadre_code_postal:>*</label>
+								[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{code_postal})</span>]
+								<input type='text' class='text' name='code_postal' id='champ_code_postal' value="[(#ENV**{code_postal})]" />
 							</li>
 							<li class="editer editer_composition_menage[(#ENV**{erreurs}|table_valeur{composition_menage}|oui)erreur]">
 								<label for="champ_composition_menage"><:gasap:entree_composition_menage:></label>
