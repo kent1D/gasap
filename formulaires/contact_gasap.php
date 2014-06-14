@@ -71,12 +71,10 @@ function formulaires_contact_gasap_traiter_dist($id_gasap){
 		$valeurs[$champ] = _request($champ);
 	}
 	
-	$corps['texte'] = _T('gasap:message_contact_asso_intro') . "\n" .
+	$corps['texte'] = _T('gasap:message_contact_asso_intro',array('url'=>_request('url_page')) . "\n" .
 _T('gasap:message_contact_asso_nom') . $valeurs['nom'] . "\n" .
 _T('gasap:message_contact_asso_adresse') . $valeurs['email'] . "\n" .
-_T('gasap:message_contact_asso_message') . $valeurs['texte']."\n\n" .
-"------\n" .
-_T('gasap:message_envoye_depuis',array('url'=>_request('url_page')));
+_T('gasap:message_contact_asso_message') . $valeurs['texte']."\n\n";
 	
 	$destinataire = sql_getfetsel("email","spip_gasaps","id_gasap = ".intval($id_gasap));
 	$sujet = _T('gasap:message_contact_asso_sujet');

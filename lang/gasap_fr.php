@@ -95,9 +95,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_contact_asso_adresse' => 'E-mail : ',
 	'message_contact_asso_message' => 'Message : ',
 	'message_contact_asso_nom' => 'Nom : ',
-	'message_contact_asso_intro' => 'Ce message à été envoyé via le formulaire de contact sur le site www.gasap.be.',
+	'message_contact_asso_intro' => 'Ce message à été envoyé via le formulaire de contact du GASAP : @url@.',
 	'message_contact_asso_sujet' => 'Envoi d\'un message via le site gasap.be',
-	'message_envoye_depuis' => 'Message envoyé depuis la page : @url@',
 	'mise_a_jour_reussie' => 'Mise à jour réussie',
 
 // P
