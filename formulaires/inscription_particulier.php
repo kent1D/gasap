@@ -10,7 +10,6 @@ function formulaires_inscription_particulier_charger_dist($id_particulier='new',
 	$valeurs = array();
 	
 	$valeurs = formulaires_editer_objet_charger('particulier',$id_particulier,'','',$retour,$config_fonc,$row,$hidden);
-
 	return $valeurs;
 }
 
@@ -39,6 +38,9 @@ function formulaires_inscription_particulier_verifier_dist($id_particulier='new'
 	if (strlen(_request('bfg_god_mode')) > 0){
 		$erreurs['bfg_god_mode'] = "Nikouuuuuz !!";
 	}
+	
+	if(_request('email') && sql_getfetsel('email','spip_particuliers','email='.sql_quote(_request('email'))))
+		$erreurs['email'] = _T('gasap:erreur_email_deja_enregistre');
 	
 	if (count($erreurs))
 		$erreurs['message_erreur'] = _T('gasap:erreur_saisie');
@@ -70,13 +72,16 @@ E-Mail: "._request('email')."
 Pour plus d'info, l'inscription est reprise dans la partie privée du site.
 ";
 		$envoyer_mail(lire_config('email_webmaster'), "Inscription d'un particulier GASAP", $corps);
+
+		$corps = _T('gasap:message_email_inscription_utilisateur');
+		$sujet = _T('gasap:titre_email_inscription_particulier',array('nom_site_spip' => supprimer_tags(corriger_typo($GLOBALS['meta']['nom_site']))));
+		$envoyer_mail(_request('email'),$sujet, $corps);
 		$res['editable'] = false;
 	}else{
 		// ca a foire, on remet new parce l'ajout n'a pas marché
 		$valeurs["new"] = _request("new");
 		// on dis que ca n'a pas marché
 		$valeurs['message_erreur'] = _T('gasap:votre_inscription_a_echoue_veuillez_reeseyer_plus_tard');
-		
 	}
 	
 	return $valeurs;

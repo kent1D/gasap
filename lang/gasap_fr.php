@@ -46,12 +46,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'entree_lieu' => 'Une petite description : ',
 	'entree_nombre_menage' => 'Entrez ici le nombre de personne que compose votre ménage',
 	'entree_permanence' => 'Indiquez ici les permanences de votre groupe.',
-	'entree_personne_contact' => 'Voulez-vous &ecirc;tre la personne de contact?',
+	'entree_personne_contact' => 'Voulez-vous être la personne de contact?',
 	'entree_personne_de_contact' => 'Voulez-vous être une personne de contact pour organiser la première réunion de création d\'un nouveau GASAP ?',
 	'entree_remarques' => 'Indiquez ici les éventuelles remarques concernant le groupe.',
-	'erreur_saisie' => 'Une erreur est pr&eacute;sente dans votre saisie',
+	'erreur_email_deja_enregistre' => 'Cette adresse email est déjà enregistrée.',
+	'erreur_saisie' => 'Une ou plusieurs erreurs sont présentes dans votre saisie.',
 	'est_une_personne_de_contact' => 'Cette personne est une personne de contact.',
-	'etes_vous_sur_de_vouloir_supprimer_ce_gasap' => 'Etes-vous s&ucirc;r de vouloir supprimer ce GASAP ?',
+	'etes_vous_sur_de_vouloir_supprimer_ce_gasap' => 'Etes-vous sûr de vouloir supprimer ce GASAP ?',
 	'explication_quartier' => 'Dans quel quartier cherchez vous à intégrer un GASAP ?',
 
 // G
@@ -97,6 +98,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_contact_asso_nom' => 'Nom : ',
 	'message_contact_asso_intro' => 'Ce message à été envoyé via le formulaire de contact du GASAP : @url@.',
 	'message_contact_asso_sujet' => 'Envoi d\'un message via le site gasap.be',
+	'message_email_inscription_utilisateur' => 'Bonjour,
+
+Votre inscription sur www.gasap.be s\'est bien passée.
+Vous serez contacté quand un nouveau GASAP se crée dans votre commune ou quand une place se libère.
+
+Cordialement
+le réseau des GASAP',
 	'mise_a_jour_reussie' => 'Mise à jour réussie',
 
 // P
@@ -111,7 +119,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'producteurs' => 'Les producteurs',
 
 // Q
-	'qui_etes_vous' => 'Qui &ecirc;tes-vous ?',
+	'qui_etes_vous' => 'Qui êtes-vous ?',
 	'qui_voulez_vous_contacter' => 'Qui voulez-vous contacter?',
 
 // R
@@ -164,6 +172,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'titre_cadre_type_culture' => 'Type de culture',
 	'titre_cadre_type_elevage' => 'Type d\'élevge',
 	'titre_cadre_ville' => 'Ville',
+	'titre_email_inscription_particulier' => '[@nom_site_spip@] Votre inscription',
 	'titre_gasap_numero' => 'GASAP numéro',
 	'titre_gasap' => 'GASAP',
 	'titre_gasaps' => 'Les GASAPs',
@@ -174,7 +183,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'type_elevage' => 'Type d\'elevage',
 
 // U
-	'votre_inscription_a_reussi_un_organisateur_va_vous_contacter' => 'Votre inscription s\'est bien passée.<br /> Vous serez contactés quand un nouveau GASAP se crée dans votre commune ou quand un place se libère.',
+	'votre_inscription_a_reussi_un_organisateur_va_vous_contacter' => 'Votre inscription s\'est bien passée.<br /> Vous serez contacté quand un nouveau GASAP se crée dans votre commune ou quand une place se libère.',
 	'votre_inscription_a_echoue_veuillez_reeseyer_plus_tard' => 'Votre inscription ne s\'est pas déroulée correctement.<br />Veuillez réessayer plus tard ou contactez un administrateur.',
 
 // V
