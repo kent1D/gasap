@@ -8,8 +8,7 @@ function action_exporter_gasap_dist(){
 	$arg = $securiser_action();
 	
 	include_spip('inc/autoriser');
-	
-	spip_log('exports/export_'.$arg,'test.'._LOG_ERREUR);
+
 	if(autoriser('exporter','gasap')){
 		header('Content-Type: text/csv;');
 		header('Content-Disposition: attachment; filename=particuliers.csv');
