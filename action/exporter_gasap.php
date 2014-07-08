@@ -11,7 +11,7 @@ function action_exporter_gasap_dist(){
 
 	if(autoriser('exporter','gasap')){
 		header('Content-Type: text/csv;');
-		header('Content-Disposition: attachment; filename=particuliers.csv');
+		header('Content-Disposition: attachment; filename='.$arg.'.csv');
 		echo recuperer_fond('exports/export_'.$arg);
 	}
 	die();

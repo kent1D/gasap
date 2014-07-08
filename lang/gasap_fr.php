@@ -24,6 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 // B
 	'biodynamie' => 'Biodynamie',
 	'bouton_exporter_particuliers' => 'Exporter les particuliers',
+	'bouton_exporter_gasaps' => 'Exporter les GASAPs',
 	'bouton_purger_particuliers' => 'Purger les particuliers',
 
 // C
